@@ -1,0 +1,66 @@
+<?php
+
+namespace backend\models;
+
+use Yii;
+
+/**
+ * This is the model class for table "resreview".
+ *
+ * @property int $IDResReview รหัส
+ * @property string $ResReviewDate วันที่
+ * @property int $ResReviewScore คะแนน
+ * @property string $ResComment ความคิดเห็น
+ * @property string $ResReviewImage รูปภาพ
+ * @property int $IDRestaurant รหัสร้านอาหาร
+ *
+ * @property Restaurant $restaurant
+ */
+class Resreview extends \yii\db\ActiveRecord
+{
+    /**
+     * @inheritdoc
+     */
+    public static function tableName()
+    {
+        return 'resreview';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+            [['ResReviewDate', 'ResReviewScore', 'ResComment', 'ResReviewImage', 'IDRestaurant'], 'required'],
+            [['ResReviewDate'], 'safe'],
+            [['ResReviewScore', 'IDRestaurant'], 'integer'],
+            [['ResComment', 'ResReviewImage'], 'string'],
+            [['IDRestaurant'], 'unique'],
+            [['IDRestaurant'], 'exist', 'skipOnError' => true, 'targetClass' => Restaurant::className(), 'targetAttribute' => ['IDRestaurant' => 'IDRestaurant']],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'IDResReview' => 'รหัส',
+            'ResReviewDate' => 'วันที่',
+            'ResReviewScore' => 'คะแนน',
+            'ResComment' => 'ความคิดเห็น',
+            'ResReviewImage' => 'รูปภาพ',
+            'IDRestaurant' => 'รหัสร้านอาหาร',
+        ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getRestaurant()
+    {
+        return $this->hasOne(Restaurant::className(), ['IDRestaurant' => 'IDRestaurant']);
+    }
+}
