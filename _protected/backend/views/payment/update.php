@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Payment */
 
-$this->title = 'แก้ไขข้อมูลประเภทการชำระเงิน: {nameAttribute}';
+$this->title = 'แก้ไขข้อมูลประเภทการชำระเงิน: '.$model->IDPaymant;
 $this->params['breadcrumbs'][] = ['label' => 'ข้อมูลประเภทการชำระเงิน', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->IDPaymant, 'url' => ['view', 'id' => $model->IDPaymant]];
 $this->params['breadcrumbs'][] = 'Update';
