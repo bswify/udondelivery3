@@ -44,6 +44,7 @@
                     ['label' => 'ประเภทตำแหน่ง', 'icon' => 'podcast', 'url' => ['/locationtype/index']],
                     ['label' => 'ประเภทอาหาร', 'icon' => 'podcast', 'url' => ['/foodtype/index']],
                     ['label' => 'ข้อมูลประเภทการชำระเงิน', 'icon' => 'money', 'url' => ['/payment/index']],
+                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     
                 ],
             ]

@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use backend\models\Location;
+use backend\models\Customer;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Customeraddress */
@@ -14,9 +17,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'CustomerAddNo')->textInput() ?>
 
-    <?= $form->field($model, 'CustomerAddRoad')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'CustomerAddRoad')->dropDownList(
+        ArrayHelper::map(Location::find()->all(),'IDLocation','LocationName'),
+        ['promp'=>'เลือกถนน/ซอย']
+        ) ?>
 
-    <?= $form->field($model, 'IDCustomer')->textInput() ?>
+    <?= $form->field($model, 'IDCustomer')->dropDownList(
+        ArrayHelper::map(Customer::find()->all(),'IDDeliveryTime','CustomerFName +CustomerLName'),
+        ['promp'=>'เลือกชื่อลูกค้า']
+        ) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

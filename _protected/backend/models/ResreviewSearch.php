@@ -18,7 +18,7 @@ class ResreviewSearch extends Resreview
     public function rules()
     {
         return [
-            [['IDResReview', 'ResReviewScore', 'IDRestaurant'], 'integer'],
+            [['IDResReview', 'ResReviewScore', 'IDRestaurant', 'IDCustomer'], 'integer'],
             [['ResReviewDate', 'ResComment', 'ResReviewImage'], 'safe'],
         ];
     }
@@ -63,6 +63,7 @@ class ResreviewSearch extends Resreview
             'ResReviewDate' => $this->ResReviewDate,
             'ResReviewScore' => $this->ResReviewScore,
             'IDRestaurant' => $this->IDRestaurant,
+            'IDCustomer' => $this->IDCustomer,
         ]);
 
         $query->andFilterWhere(['like', 'ResComment', $this->ResComment])

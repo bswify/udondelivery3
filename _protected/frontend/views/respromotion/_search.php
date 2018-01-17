@@ -19,7 +19,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'ResPromotionName') ?>
 
-    <?= $form->field($model, 'ResPromotionPrice') ?>
+    
 
     <?= $form->field($model, 'ResPromotionStart') ?>
 

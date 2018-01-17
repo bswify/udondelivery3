@@ -34,6 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'ResComment:ntext',
             'ResReviewImage:ntext',
             'IDRestaurant',
+            'IDCustomer',
         ],
     ]) ?>
 

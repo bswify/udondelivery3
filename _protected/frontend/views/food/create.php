@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Food */
 
-$this->title = 'เพิ่มเมนูอาหาร';
-$this->params['breadcrumbs'][] = ['label' => 'เมนูอาหาร', 'url' => ['index']];
+$this->title = 'เพิ่มข้อมูลเมนูอาหาร';
+$this->params['breadcrumbs'][] = ['label' => 'ข้อมูลเมนูอาหาร', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="food-create">

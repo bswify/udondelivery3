@@ -27,11 +27,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'IDLocation',
             'LocationName:ntext',
-            'IDLocationType',
-            // [
-            //     'attribute' => 'IDLocationType',
-            //     'value' => 'locationtype.LocationTypeName',
-            // ],
+            //'IDLocationType',
+           // 'locationType.LocationTypeName',
+            [
+                'attribute' => 'IDLocationType',
+                'value' => 'locationType.LocationTypeName',
+            ],
             //  'LocationTypeName',
 
             ['class' => 'yii\grid\ActionColumn'],

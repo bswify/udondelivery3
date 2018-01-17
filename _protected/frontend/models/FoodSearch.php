@@ -19,7 +19,7 @@ class FoodSearch extends Food
     {
         return [
             [['IDFood', 'FoodPrice', 'IDFoodType', 'IDRestaurant'], 'integer'],
-            [['FoodName', 'MenuTypeName'], 'safe'],
+            [['FoodImg', 'FoodName', 'MenuTypeName'], 'safe'],
         ];
     }
 
@@ -65,7 +65,8 @@ class FoodSearch extends Food
             'IDRestaurant' => $this->IDRestaurant,
         ]);
 
-        $query->andFilterWhere(['like', 'FoodName', $this->FoodName])
+        $query->andFilterWhere(['like', 'FoodImg', $this->FoodImg])
+            ->andFilterWhere(['like', 'FoodName', $this->FoodName])
             ->andFilterWhere(['like', 'MenuTypeName', $this->MenuTypeName]);
 
         return $dataProvider;

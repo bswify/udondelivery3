@@ -6,9 +6,9 @@ use yii\helpers\Html;
 /* @var $model backend\models\Orders */
 
 $this->title = 'แก้ไขข้อมูลการสั่งซื้อ: '.$model->IDOrder;
-$this->params['breadcrumbs'][] = ['label' => 'Orders', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'ข้อมูลการสั่งซื้อ', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->IDOrder, 'url' => ['view', 'id' => $model->IDOrder]];
-$this->params['breadcrumbs'][] = 'แก้ไข';
+$this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="orders-update">
 

@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model backend\models\Resreview */
 
 $this->title = 'แก้ไขข้อมูลรีวิวร้านอาหาร: '.$model->IDResReview;
-$this->params['breadcrumbs'][] = ['label' => 'ข้อมูลรีวิวร้านอาหาร', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Resreviews', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->IDResReview, 'url' => ['view', 'id' => $model->IDResReview]];
 $this->params['breadcrumbs'][] = 'แก้ไข';
 ?>

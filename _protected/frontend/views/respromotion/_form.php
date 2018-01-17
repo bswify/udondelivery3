@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'ResPromotionName')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'ResPromotionPrice')->textInput() ?>
+   
 
     <?= $form->field($model, 'ResPromotionStart')->widget(\janisto\timepicker\TimePicker::className(), [
     //'language' => 'fi',

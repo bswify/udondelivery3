@@ -18,7 +18,7 @@ class RespromotionSearch extends Respromotion
     public function rules()
     {
         return [
-            [['IDResPromotion', 'ResPromotionPrice', 'IDRestaurant'], 'integer'],
+            [['IDResPromotion',  'IDRestaurant'], 'integer'],
             [['ResPromotionName', 'ResPromotionStart', 'ResPromotionEnd'], 'safe'],
         ];
     }
@@ -60,7 +60,7 @@ class RespromotionSearch extends Respromotion
         // grid filtering conditions
         $query->andFilterWhere([
             'IDResPromotion' => $this->IDResPromotion,
-            'ResPromotionPrice' => $this->ResPromotionPrice,
+            
             'ResPromotionStart' => $this->ResPromotionStart,
             'ResPromotionEnd' => $this->ResPromotionEnd,
             'IDRestaurant' => $this->IDRestaurant,

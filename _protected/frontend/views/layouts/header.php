@@ -64,17 +64,17 @@ use yii\helpers\Html;
          								<h6 class="category text-gray">คุณยังไม่ได้เข้าสู่ระบบ</h6>
          								<h4 class="card-title">Guest User</h4>
 
-                         <div class="pull-left">
+                         <!-- <div class="pull-left">
                            <?= Html::a(
                                'Signup',
                                ['/site/signup'],
                                ['data-method' => 'post', 'class' => 'btn btn-primary btn-round','style'=>'padding: 12px 25px;']
                            ) ?>
-                         </div>
+                         </div> -->
                          <div class="pull-right">
                              <?= Html::a(
                                  'Login',
-                                 ['/site1/login'],
+                                 ['/site/login'],
                                  ['data-method' => 'post', 'class' => 'btn btn-primary btn-round','style'=>'padding: 12px 25px;']
                              ) ?>
                          </div>

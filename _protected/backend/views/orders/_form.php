@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use backend\models\Employee;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Orders */
@@ -20,19 +22,26 @@ use yii\widgets\ActiveForm;
         //'timeFormat' => 'HH:mm:ss',
         'showSecond' => true,
     ]
-]) ?>
+])  ?>
 
     <?= $form->field($model, 'OrderNote')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'OrderTotalPrice')->textInput() ?>
 
-    <?= $form->field($model, 'OrderStatus')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'OrderStatus')->dropDownList(
+        ['รอยืนยัน' => 'รอยืนยัน', 'ยืนยัน' => 'ยืนยัน', 'กำลังจัดส่ง' => 'กำลังจัดส่ง', 'จัดส่งแล้ว' => 'จัดส่งแล้ว']) ?>
 
     <?= $form->field($model, 'IDOrderDetails')->textInput() ?>
 
     <?= $form->field($model, 'IDPaymant')->textInput() ?>
 
     <?= $form->field($model, 'IDDelivery')->textInput() ?>
+
+    <?= $form->field($model, 'IDCustomer')->textInput() ?>
+
+    <?= $form->field($model, 'IDEmp')->dropDownList(
+        ArrayHelper::map(Employee::find()->all(),'IDEmp','EmpFName'),
+        ['promp'=>'เลือกพนักงาน'])  ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

@@ -46,7 +46,7 @@ class Location extends \yii\db\ActiveRecord
         return [
             'IDLocation' => 'รหัส',
             'LocationName' => 'ชื่อตำแหน่ง',
-            'IDLocationType' => 'รหัสประเภทตำแหน่ง',
+            'IDLocationType' => 'ชื่อประเภทตำแหน่ง',
             // 'LocationTypeName' => 'ชื่อประเภทตำแหน่ง',
             
         ];

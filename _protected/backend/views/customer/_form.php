@@ -1,5 +1,5 @@
 <?php
-
+use consynki\yii\input\ImageInput;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -16,17 +16,21 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'CustomerLName')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'CustomerImage')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'CustomerImage')->widget(ImageInput::className(), [
+		'value' => '/img/current-image.png' //Optional current value
+    ]) ?>
 
     <?= $form->field($model, 'CustomerPoint')->textInput() ?>
 
     <?= $form->field($model, 'CustomerPhone')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'CUsername')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'CUsername')->textarea(['rows' => 1]) ?>
 
-    <?= $form->field($model, 'CPasswords')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'CPasswords')->textarea(['rows' => 1]) ?>
 
-    <?= $form->field($model, 'LoginType')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'LoginType')->dropDownList(
+        ['promp'=>'เลือกประเภทผู้ใช้งาน','แอดมิน' => 'แอดมิน', 'เจ้าของร้าน' => 'เจ้าของร้าน'
+        ,'ลูกค้า' => 'ลูกค้า','พนักงานจัดส่ง' => 'พนักงานจัดส่ง']) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

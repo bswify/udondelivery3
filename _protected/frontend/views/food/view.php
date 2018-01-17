@@ -6,8 +6,8 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Food */
 
-$this->title = $model->FoodName;
-$this->params['breadcrumbs'][] = ['label' => 'เมนูอาหาร', 'url' => ['index']];
+$this->title = $model->IDFood;
+$this->params['breadcrumbs'][] = ['label' => 'ข้อมูลเมนูอาหาร', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="food-view">
@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('แก้ไข', ['update', 'id' => $model->FoodName], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('ลบ', ['delete', 'id' => $model->FoodName], [
+        <?= Html::a('แก้ไข', ['update', 'id' => $model->IDFood], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('ลบ', ['delete', 'id' => $model->IDFood], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -29,6 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'IDFood',
+            'FoodImg:ntext',
             'FoodName:ntext',
             'FoodPrice',
             'IDFoodType',

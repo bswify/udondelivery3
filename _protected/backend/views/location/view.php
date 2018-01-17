@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'IDLocation',
             'LocationName:ntext',
-            'IDLocationType',
+            'locationType.LocationTypeName',
         ],
     ]) ?>
 

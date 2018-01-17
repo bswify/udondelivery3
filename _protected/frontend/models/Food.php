@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "food".
  *
  * @property int $IDFood รหัส
+ * @property string $FoodImg
  * @property string $FoodName ชื่ออาหาร
  * @property int $FoodPrice ราคา
  * @property int $IDFoodType ประเภท
@@ -36,8 +37,8 @@ class Food extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['FoodName', 'FoodPrice', 'IDFoodType', 'IDRestaurant', 'MenuTypeName'], 'required'],
-            [['FoodName', 'MenuTypeName'], 'string'],
+            [['FoodImg', 'FoodName', 'FoodPrice', 'IDFoodType', 'IDRestaurant', 'MenuTypeName'], 'required'],
+            [['FoodImg', 'FoodName', 'MenuTypeName'], 'string'],
             [['FoodPrice', 'IDFoodType', 'IDRestaurant'], 'integer'],
             [['IDRestaurant'], 'unique'],
             [['IDFoodType'], 'unique'],
@@ -53,6 +54,7 @@ class Food extends \yii\db\ActiveRecord
     {
         return [
             'IDFood' => 'รหัส',
+            'FoodImg' => 'รูปภาพ',
             'FoodName' => 'ชื่ออาหาร',
             'FoodPrice' => 'ราคา',
             'IDFoodType' => 'ประเภท',

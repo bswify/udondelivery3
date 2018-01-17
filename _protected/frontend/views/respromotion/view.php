@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'IDResPromotion',
             'ResPromotionName:ntext',
-            'ResPromotionPrice',
+         
             'ResPromotionStart',
             'ResPromotionEnd',
             'IDRestaurant',

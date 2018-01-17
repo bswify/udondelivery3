@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel frontend\models\FoodSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'เมนูอาหาร';
+$this->title = 'ข้อมูลเมนูอาหาร';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="food-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('เพิ่มเมนูอาหาร', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('เพิ่มข้อมูลเมนูอาหาร', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -26,11 +26,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'IDFood',
+            'FoodImg:ntext',
             'FoodName:ntext',
             'FoodPrice',
             'IDFoodType',
-            'IDRestaurant',
-            'MenuTypeName:ntext',
+            //'IDRestaurant',
+            //'MenuTypeName:ntext',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

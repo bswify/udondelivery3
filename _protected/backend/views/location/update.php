@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Location */
 
-$this->title = 'แก้ไขข้อมูลตำแหน่ง: {nameAttribute}';
+$this->title = 'แก้ไขข้อมูลตำแหน่ง: '.$model->IDLocation;
 $this->params['breadcrumbs'][] = ['label' => 'ข้อมูลตำแหน่ง', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->IDLocation, 'url' => ['view', 'id' => $model->IDLocation]];
 $this->params['breadcrumbs'][] = 'แก้ไข';

@@ -47,7 +47,7 @@ class Customeraddress extends \yii\db\ActiveRecord
             'IDCustomerAddress' => 'รหัส',
             'CustomerAddNo' => 'บ้านเลขที่',
             'CustomerAddRoad' => 'ซอย/ถนน',
-            'IDCustomer' => 'รหัสสมาชิก',
+            'IDCustomer' => 'ชื่อลูกค้า',
             // 'CustomerFName' => 'ชื่อสมาชิก',
             
         ];

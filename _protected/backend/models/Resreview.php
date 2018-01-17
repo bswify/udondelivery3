@@ -13,8 +13,10 @@ use Yii;
  * @property string $ResComment ความคิดเห็น
  * @property string $ResReviewImage รูปภาพ
  * @property int $IDRestaurant รหัสร้านอาหาร
+ * @property int $IDCustomer ชื่อลูกค้า
  *
  * @property Restaurant $restaurant
+ * @property Customer $customer
  */
 class Resreview extends \yii\db\ActiveRecord
 {
@@ -32,12 +34,14 @@ class Resreview extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ResReviewDate', 'ResReviewScore', 'ResComment', 'ResReviewImage', 'IDRestaurant'], 'required'],
+            [['ResReviewDate', 'ResReviewScore', 'ResComment', 'ResReviewImage', 'IDRestaurant', 'IDCustomer'], 'required'],
             [['ResReviewDate'], 'safe'],
-            [['ResReviewScore', 'IDRestaurant'], 'integer'],
+            [['ResReviewScore', 'IDRestaurant', 'IDCustomer'], 'integer'],
             [['ResComment', 'ResReviewImage'], 'string'],
             [['IDRestaurant'], 'unique'],
+            [['IDCustomer'], 'unique'],
             [['IDRestaurant'], 'exist', 'skipOnError' => true, 'targetClass' => Restaurant::className(), 'targetAttribute' => ['IDRestaurant' => 'IDRestaurant']],
+            [['IDCustomer'], 'exist', 'skipOnError' => true, 'targetClass' => Customer::className(), 'targetAttribute' => ['IDCustomer' => 'IDCustomer']],
         ];
     }
 
@@ -53,6 +57,7 @@ class Resreview extends \yii\db\ActiveRecord
             'ResComment' => 'ความคิดเห็น',
             'ResReviewImage' => 'รูปภาพ',
             'IDRestaurant' => 'รหัสร้านอาหาร',
+            'IDCustomer' => 'ชื่อลูกค้า',
         ];
     }
 
@@ -62,5 +67,13 @@ class Resreview extends \yii\db\ActiveRecord
     public function getRestaurant()
     {
         return $this->hasOne(Restaurant::className(), ['IDRestaurant' => 'IDRestaurant']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCustomer()
+    {
+        return $this->hasOne(Customer::className(), ['IDCustomer' => 'IDCustomer']);
     }
 }

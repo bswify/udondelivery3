@@ -9,7 +9,7 @@ use Yii;
  *
  * @property int $IDResPromotion รหัส
  * @property string $ResPromotionName ชื่อโปรโมชั่น
- * @property int $ResPromotionPrice ราคาส่วนลด
+
  * @property string $ResPromotionStart วันที่เริ่ม
  * @property string $ResPromotionEnd วันที่สิ้นสุด
  * @property int $IDRestaurant รหัสร้านอาหาร
@@ -32,9 +32,9 @@ class Respromotion extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ResPromotionName', 'ResPromotionPrice', 'ResPromotionStart', 'ResPromotionEnd', 'IDRestaurant'], 'required'],
+            [['ResPromotionName',  'ResPromotionStart', 'ResPromotionEnd', 'IDRestaurant'], 'required'],
             [['ResPromotionName'], 'string'],
-            [['ResPromotionPrice', 'IDRestaurant'], 'integer'],
+            [[ 'IDRestaurant'], 'integer'],
             [['ResPromotionStart', 'ResPromotionEnd'], 'safe'],
             [['IDRestaurant'], 'unique'],
             [['IDRestaurant'], 'exist', 'skipOnError' => true, 'targetClass' => Restaurant::className(), 'targetAttribute' => ['IDRestaurant' => 'IDRestaurant']],
@@ -49,7 +49,7 @@ class Respromotion extends \yii\db\ActiveRecord
         return [
             'IDResPromotion' => 'รหัส',
             'ResPromotionName' => 'ชื่อโปรโมชั่น',
-            'ResPromotionPrice' => 'ราคาส่วนลด',
+           
             'ResPromotionStart' => 'วันที่เริ่ม',
             'ResPromotionEnd' => 'วันที่สิ้นสุด',
             'IDRestaurant' => 'รหัสร้านอาหาร',

@@ -31,6 +31,10 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'IDDelivery') ?>
 
+    <?php // echo $form->field($model, 'IDCustomer') ?>
+
+    <?php // echo $form->field($model, 'IDEmp') ?>
+
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>

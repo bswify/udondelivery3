@@ -33,6 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
             //'IDOrderDetails',
             //'IDPaymant',
             //'IDDelivery',
+            //'IDCustomer',
+            //'IDEmp',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

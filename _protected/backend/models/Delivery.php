@@ -49,8 +49,8 @@ class Delivery extends \yii\db\ActiveRecord
         return [
             'IDDelivery' => 'รหัส',
             'DeliveryPrice' => 'ค่าจัดส่ง',
-            'IDDeliveryTime' => 'รหัสเวลาจัดส่ง',
-            'IDDeliveryPro' => 'รหัสโปรโมชั่นการจัดส่ง',
+            'IDDeliveryTime' => 'เวลาจัดส่ง',
+            'IDDeliveryPro' => 'โปรโมชั่นการจัดส่ง',
         ];
     }
 

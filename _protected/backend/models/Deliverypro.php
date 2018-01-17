@@ -48,7 +48,7 @@ class Deliverypro extends \yii\db\ActiveRecord
             'IDDeliveryPro' => 'รหัส',
             'DeliveryProName' => 'ชื่อโปรโมชั่นการจัดส่ง',
             'DeliveryProPiont' => 'แต้มที่ใช้',
-            'DeliveryProPrice' => 'ราคาส่วนลด',
+            'DeliveryProPrice' => 'ราคาค่าจัดส่ง',
             'DeliveryProStart' => 'วันที่เริ่ม',
             'DeliveryProEnd' => 'วันที่สิ้นสุด',
         ];

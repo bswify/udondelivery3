@@ -36,6 +36,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'IDOrderDetails',
             'IDPaymant',
             'IDDelivery',
+            'IDCustomer',
+            'IDEmp',
         ],
     ]) ?>
 

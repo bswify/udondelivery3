@@ -18,7 +18,7 @@ class OrdersSearch extends Orders
     public function rules()
     {
         return [
-            [['IDOrder', 'OrderTotalPrice', 'IDOrderDetails', 'IDPaymant', 'IDDelivery'], 'integer'],
+            [['IDOrder', 'OrderTotalPrice', 'IDOrderDetails', 'IDPaymant', 'IDDelivery', 'IDCustomer', 'IDEmp'], 'integer'],
             [['OrderDate', 'OrderNote', 'OrderStatus'], 'safe'],
         ];
     }
@@ -65,6 +65,8 @@ class OrdersSearch extends Orders
             'IDOrderDetails' => $this->IDOrderDetails,
             'IDPaymant' => $this->IDPaymant,
             'IDDelivery' => $this->IDDelivery,
+            'IDCustomer' => $this->IDCustomer,
+            'IDEmp' => $this->IDEmp,
         ]);
 
         $query->andFilterWhere(['like', 'OrderNote', $this->OrderNote])
