@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model backend\models\Payment */
 
 $this->title = $model->IDPaymant;
-$this->params['breadcrumbs'][] = ['label' => 'ข้อมูลประเภทการชำระเงิ', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'ข้อมูลประเภทการชำระเงิน', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="payment-view">

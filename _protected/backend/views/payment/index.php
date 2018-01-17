@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\PaymentSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'ข้อมูลประเภทการชำระเงิ';
+$this->title = 'ข้อมูลประเภทการชำระเงิน';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="payment-index">
