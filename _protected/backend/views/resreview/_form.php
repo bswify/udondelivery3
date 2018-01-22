@@ -2,6 +2,9 @@
 use consynki\yii\input\ImageInput;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use backend\models\Restaurant;
+use backend\models\Customer;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Resreview */
@@ -22,7 +25,7 @@ use yii\widgets\ActiveForm;
     ]
 ])  ?>
 
-    <?= $form->field($model, 'ResReviewScore')->textInput() ?>
+    <?= $form->field($model, 'ResReviewScore')->textInput(['type' => 'number']) ?>
 
     <?= $form->field($model, 'ResComment')->textarea(['rows' => 6]) ?>
 
@@ -30,9 +33,13 @@ use yii\widgets\ActiveForm;
 		'value' => '/img/current-image.png' //Optional current value
     ]) ?>
 
-    <?= $form->field($model, 'IDRestaurant')->textInput() ?>
+    <?= $form->field($model, 'IDRestaurant')->dropDownList(
+        ArrayHelper::map(Restaurant::find()->all(),'IDRestaurant','ResName'),
+        ['promp'=>'เลือกร้านอาหาร']) ?>
 
-    <?= $form->field($model, 'IDCustomer')->textInput() ?>
+    <?= $form->field($model, 'IDCustomer')->dropDownList(
+        ArrayHelper::map(Customer::find()->all(),'IDCustomer','CustomerFName'),
+        ['promp'=>'เลือกลูกค้า']) ?>
 
     <div class="form-group">
         <?= Html::submitButton('บันทึก', ['class' => 'btn btn-success']) ?>

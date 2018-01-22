@@ -146,7 +146,14 @@ $this->registerJs($script, View::POS_LOAD, 'myOption'); ?>
             <i class = "material-icons" > stars </i>
             <p> ข้อมูลโปรโมชั่นร้านอาหาร </p>
          </a>
-      </li>
+			</li>
+			<li>
+         <a href = "<?= Url::to(['/map/map'])?>">
+            <i class = "material-icons" > stars </i>
+            <p> แผนที่ </p>
+         </a>
+			</li>
+			
       <!-- <li id = "fdash">
          <a href = "<?= Url::to(['/site/index'])?>">
             <i class = "material-icons" > dashboard </i>

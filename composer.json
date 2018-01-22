@@ -21,7 +21,10 @@
         "2amigos/yii2-date-picker-widget": "~1.0",
         "kartik-v/yii2-mpdf": "*",
         "janisto/yii2-timepicker": "*",
-        "consynki/yii2-image-input": "*" 
+        "consynki/yii2-image-input": "*",
+        "2amigos/yii2-google-maps-library": "*",
+        "pigochu/yii2-jquery-locationpicker": ">=0.2.0",
+        "borales/yii2-phone-input": "*" 
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

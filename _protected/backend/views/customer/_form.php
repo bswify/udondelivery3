@@ -2,6 +2,7 @@
 use consynki\yii\input\ImageInput;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use borales\extensions\phoneInput\PhoneInput;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Customer */
@@ -20,13 +21,16 @@ use yii\widgets\ActiveForm;
 		'value' => '/img/current-image.png' //Optional current value
     ]) ?>
 
-    <?= $form->field($model, 'CustomerPoint')->textInput() ?>
+    <?= $form->field($model, 'CustomerPoint')->textInput(['type' => 'number']) ?>
 
-    <?= $form->field($model, 'CustomerPhone')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'CustomerPhone')->widget(PhoneInput::className(), [
+    'jsOptions' => [
+        'preferredCountries' => ['th']]
+]) ?>
 
-    <?= $form->field($model, 'CUsername')->textarea(['rows' => 1]) ?>
+    <!-- <?= $form->field($model, 'CUsername')->textarea(['rows' => 1]) ?>
 
-    <?= $form->field($model, 'CPasswords')->textarea(['rows' => 1]) ?>
+    <?= $form->field($model, 'CPasswords')->textarea(['rows' => 1]) ?> -->
 
     <?= $form->field($model, 'LoginType')->dropDownList(
         ['promp'=>'เลือกประเภทผู้ใช้งาน','แอดมิน' => 'แอดมิน', 'เจ้าของร้าน' => 'เจ้าของร้าน'

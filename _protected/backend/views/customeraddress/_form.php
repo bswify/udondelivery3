@@ -23,7 +23,7 @@ use backend\models\Customer;
         ) ?>
 
     <?= $form->field($model, 'IDCustomer')->dropDownList(
-        ArrayHelper::map(Customer::find()->all(),'IDDeliveryTime','CustomerFName +CustomerLName'),
+        ArrayHelper::map(Customer::find()->all(),'IDCustomer','CustomerFName'),
         ['promp'=>'เลือกชื่อลูกค้า']
         ) ?>
 

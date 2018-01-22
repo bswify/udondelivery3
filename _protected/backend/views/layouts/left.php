@@ -31,7 +31,7 @@
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     ['label' => 'จัดการข้อมูล', 'options' => ['class' => 'header']],
-                    ['label' => 'ข้อมูลการสั่งซื้อ', 'icon' => 'building-o', 'url' => ['/orders/index']],
+                   // ['label' => 'ข้อมูลการสั่งซื้อ', 'icon' => 'building-o', 'url' => ['/orders/index']],
                     ['label' => 'ข้อมูลร้านอาหาร', 'icon' => 'building-o', 'url' => ['/restaurant/index']],
                     ['label' => 'ข้อมูลรีวิวร้านอาหาร', 'icon' => 'frown-o', 'url' => ['/resreview/index']],
                     ['label' => 'ข้อมูลลูกค้า', 'icon' => 'star-half-o', 'url' => ['/customer/index']],

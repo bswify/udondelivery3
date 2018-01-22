@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'LocationTypeName')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'LocationTypeName')->textarea(['rows' => 1]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

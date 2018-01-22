@@ -39,9 +39,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'ResImg') ?>
 
-    <?php // echo $form->field($model, 'ResLat') ?>
-
-    <?php // echo $form->field($model, 'ResLong') ?>
+    <?php // echo $form->field($model, 'latlng') ?>
 
     <?php // echo $form->field($model, 'LoginType') ?>
 

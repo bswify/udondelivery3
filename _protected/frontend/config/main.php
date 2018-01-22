@@ -12,6 +12,19 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+
+        // 'assetManager' => [
+		// 	'bundles' => [
+		// 		'dosamigos\google\maps\MapAsset' => [
+		// 		'options' => [
+		// 			'key' => 'AIzaSyCP7RNiyWiYUj-4JrlrgvhXl2lRE4zIKlo',// ใส่ API ตรงนี้ครับ
+		// 			'language' => 'th',
+		// 			'version' => '3.1.18'
+		// 			]
+		// 		]
+		// 	]
+		// ], 
+
         'session' => [
             'name' => 'FRONTENDSESSION',//ชื่อ Session
             'cookieParams' => [

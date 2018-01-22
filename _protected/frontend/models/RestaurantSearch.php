@@ -19,7 +19,7 @@ class RestaurantSearch extends Restaurant
     {
         return [
             [['IDRestaurant', 'ResLowPrice', 'IDLocation'], 'integer'],
-            [['ResName', 'ResAddress', 'ResStatus', 'ResTel', 'ResTimeStart', 'ResTimeEnd', 'RUsername', 'Rpasswords', 'ResImg', 'ResLat', 'ResLong', 'LoginType'], 'safe'],
+            [['ResName', 'ResAddress', 'ResStatus', 'ResTel', 'ResTimeStart', 'ResTimeEnd', 'RUsername', 'Rpasswords', 'ResImg', 'latlng', 'LoginType'], 'safe'],
         ];
     }
 
@@ -73,8 +73,7 @@ class RestaurantSearch extends Restaurant
             ->andFilterWhere(['like', 'RUsername', $this->RUsername])
             ->andFilterWhere(['like', 'Rpasswords', $this->Rpasswords])
             ->andFilterWhere(['like', 'ResImg', $this->ResImg])
-            ->andFilterWhere(['like', 'ResLat', $this->ResLat])
-            ->andFilterWhere(['like', 'ResLong', $this->ResLong])
+            ->andFilterWhere(['like', 'latlng', $this->latlng])
             ->andFilterWhere(['like', 'LoginType', $this->LoginType]);
 
         return $dataProvider;

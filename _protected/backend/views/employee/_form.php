@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use borales\extensions\phoneInput\PhoneInput;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Employee */
@@ -16,7 +17,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'EmpLname')->textarea(['rows' => 1]) ?>
 
-    <?= $form->field($model, 'EmpPhone')->textInput() ?>
+    <?= $form->field($model, 'EmpPhone')->widget(PhoneInput::className(), [
+    'jsOptions' => [
+        'preferredCountries' => ['th']]
+]) ?>
 
     <?= $form->field($model, 'EUsername')->textarea(['rows' => 1]) ?>
 

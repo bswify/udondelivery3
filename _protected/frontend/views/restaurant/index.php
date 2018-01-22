@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel frontend\models\RestaurantSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'ข้อมูลร้านอาหาร';
+$this->title = 'Restaurants';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="restaurant-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <!-- <?= Html::a('เพิ่มข้อมูลร้านอาหาร', ['create'], ['class' => 'btn btn-success']) ?> -->
+        <?= Html::a('Create Restaurant', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -37,8 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'RUsername:ntext',
             //'Rpasswords:ntext',
             //'ResImg:ntext',
-            //'ResLat:ntext',
-            //'ResLong:ntext',
+            //'latlng:ntext',
             //'LoginType:ntext',
 
             ['class' => 'yii\grid\ActionColumn'],

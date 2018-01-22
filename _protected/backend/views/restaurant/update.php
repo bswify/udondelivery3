@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Restaurant */
 
-$this->title = 'แก้ไขข้อมูลร้านอาหาร:'.$model->IDRestaurant;
+$this->title = 'แก้ไขข้อมูลร้านอาหาร: '.$model->IDRestaurant;
 $this->params['breadcrumbs'][] = ['label' => 'ข้อมูลร้านอาหาร', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->IDRestaurant, 'url' => ['view', 'id' => $model->IDRestaurant]];
 $this->params['breadcrumbs'][] = 'แก้ไข';

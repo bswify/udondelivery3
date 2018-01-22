@@ -12,11 +12,11 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'DeliveryProName')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'DeliveryProName')->textarea(['rows' => 1]) ?>
 
-    <?= $form->field($model, 'DeliveryProPiont')->textInput() ?>
+    <?= $form->field($model, 'DeliveryProPiont')->textInput(['type' => 'number']) ?>
 
-    <?= $form->field($model, 'DeliveryProPrice')->textInput() ?>
+    <?= $form->field($model, 'DeliveryProPrice')->textInput(['type' => 'number']) ?>
 
     <?= $form->field($model, 'DeliveryProStart')->widget(\janisto\timepicker\TimePicker::className(), [
     //'language' => 'fi',

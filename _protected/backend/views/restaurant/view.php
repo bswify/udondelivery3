@@ -40,8 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'RUsername:ntext',
             'Rpasswords:ntext',
             'ResImg:ntext',
-            'ResLat:ntext',
-            'ResLong:ntext',
+            'latlng:ntext',
             'LoginType:ntext',
         ],
     ]) ?>

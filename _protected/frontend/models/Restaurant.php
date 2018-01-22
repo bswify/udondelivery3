@@ -19,8 +19,7 @@ use Yii;
  * @property string $RUsername Username
  * @property string $Rpasswords password
  * @property string $ResImg รูปภาพ
- * @property string $ResLat ละติจูด
- * @property string $ResLong ลองจิจูด
+ * @property string $latlng ตำแหน่งจากgooglemap
  * @property string $LoginType ประเภท
  *
  * @property Food $food
@@ -44,8 +43,8 @@ class Restaurant extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ResName', 'ResAddress', 'ResStatus', 'ResLowPrice', 'ResTel', 'ResTimeStart', 'ResTimeEnd', 'IDLocation', 'RUsername', 'Rpasswords', 'ResImg', 'ResLat', 'ResLong', 'LoginType'], 'required'],
-            [['ResName', 'ResAddress', 'ResStatus', 'ResTel', 'RUsername', 'Rpasswords', 'ResImg', 'ResLat', 'ResLong', 'LoginType'], 'string'],
+            [['ResName', 'ResAddress', 'ResStatus', 'ResLowPrice', 'ResTel', 'ResTimeStart', 'ResTimeEnd', 'IDLocation', 'RUsername', 'Rpasswords', 'ResImg', 'latlng', 'LoginType'], 'required'],
+            [['ResName', 'ResAddress', 'ResStatus', 'ResTel', 'RUsername', 'Rpasswords', 'ResImg', 'latlng', 'LoginType'], 'string'],
             [['ResLowPrice', 'IDLocation'], 'integer'],
             [['ResTimeStart', 'ResTimeEnd'], 'safe'],
             [['IDLocation'], 'unique'],
@@ -71,8 +70,7 @@ class Restaurant extends \yii\db\ActiveRecord
             'RUsername' => 'Username',
             'Rpasswords' => 'password',
             'ResImg' => 'รูปภาพ',
-            'ResLat' => 'ละติจูด',
-            'ResLong' => 'ลองจิจูด',
+            'latlng' => 'ตำแหน่งจากgooglemap',
             'LoginType' => 'ประเภท',
         ];
     }
