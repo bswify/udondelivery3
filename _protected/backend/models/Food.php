@@ -39,8 +39,8 @@ class Food extends \yii\db\ActiveRecord
             [['FoodName', 'FoodPrice', 'IDFoodType', 'IDRestaurant', 'MenuTypeName'], 'required'],
             [['FoodName', 'MenuTypeName'], 'string'],
             [['FoodPrice', 'IDFoodType', 'IDRestaurant'], 'integer'],
-            [['IDRestaurant'], 'unique'],
-            [['IDFoodType'], 'unique'],
+            // [['IDRestaurant'], 'unique'],
+            // [['IDFoodType'], 'unique'],
             [['IDFoodType'], 'exist', 'skipOnError' => true, 'targetClass' => Foodtype::className(), 'targetAttribute' => ['IDFoodType' => 'IDFoodType']],
             [['IDRestaurant'], 'exist', 'skipOnError' => true, 'targetClass' => Restaurant::className(), 'targetAttribute' => ['IDRestaurant' => 'IDRestaurant']],
         ];

@@ -147,45 +147,45 @@ $this->registerJs($script, View::POS_LOAD, 'myOption'); ?>
             <p> ข้อมูลโปรโมชั่นร้านอาหาร </p>
          </a>
 			</li>
-			<li>
-         <a href = "<?= Url::to(['/map/map'])?>">
+			<!-- <li>
+         <a href = "<= Url::to(['/map/map'])?>">
             <i class = "material-icons" > stars </i>
             <p> แผนที่ </p>
          </a>
-			</li>
+			</li> -->
 			
       <!-- <li id = "fdash">
-         <a href = "<?= Url::to(['/site/index'])?>">
+         <a href = "<= Url::to(['/site/index'])?>">
             <i class = "material-icons" > dashboard </i>
             <p> Dashboard </p>
          </a >
       </li>
       <li>
-         <a href = "<?= Url::to(['/article/index'])?>">
+         <a href = "<= Url::to(['/article/index'])?>">
             <i class = "material-icons" > person </i>
             <p> Blog </p>
          </a>
       </li>
       <li>
-         <a href = "<?= Url::to(['/site/about'])?>" >
+         <a href = "<= Url::to(['/site/about'])?>" >
             <i class = "material-icons" > content_paste </i>
             <p> About </p>
          </a>
       </li>
       <li>
-         <a href = "<?= Url::to(['/site/contact'])?>" >
+         <a href = "<= Url::to(['/site/contact'])?>" >
             <i class = "material-icons" > library_books </i>
             <p> contact </p>
          </a>
       </li> -->
       <!-- <li>
-         <a href = "<?= Url::to(['/site/login'])?>" >
+         <a href = "<= Url::to(['/site/login'])?>" >
             <i class = "material-icons" > bubble_chart </i>
             <p> Login </p>
          </a >
       </li>
       <li>
-         <a href = "<?= Url::to(['/site/signup'])?>" >
+         <a href = "<= Url::to(['/site/signup'])?>" >
             <i class = "material-icons" > location_on </i>
             <p> Signup </p>
          </a>

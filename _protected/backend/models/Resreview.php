@@ -38,8 +38,8 @@ class Resreview extends \yii\db\ActiveRecord
             [['ResReviewDate'], 'safe'],
             [['ResReviewScore', 'IDRestaurant', 'IDCustomer'], 'integer'],
             [['ResComment', 'ResReviewImage'], 'string'],
-            [['IDRestaurant'], 'unique'],
-            [['IDCustomer'], 'unique'],
+            // [['IDRestaurant'], 'unique'],
+            // [['IDCustomer'], 'unique'],
             [['IDRestaurant'], 'exist', 'skipOnError' => true, 'targetClass' => Restaurant::className(), 'targetAttribute' => ['IDRestaurant' => 'IDRestaurant']],
             [['IDCustomer'], 'exist', 'skipOnError' => true, 'targetClass' => Customer::className(), 'targetAttribute' => ['IDCustomer' => 'IDCustomer']],
         ];

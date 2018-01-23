@@ -47,7 +47,7 @@ class Restaurant extends \yii\db\ActiveRecord
             [['ResName', 'ResAddress', 'ResStatus', 'ResTel', 'RUsername', 'Rpasswords', 'ResImg', 'latlng', 'LoginType'], 'string'],
             [['ResLowPrice', 'IDLocation'], 'integer'],
             [['ResTimeStart', 'ResTimeEnd'], 'safe'],
-            [['IDLocation'], 'unique'],
+            // [['IDLocation'], 'unique'],
             [['IDLocation'], 'exist', 'skipOnError' => true, 'targetClass' => Location::className(), 'targetAttribute' => ['IDLocation' => 'IDLocation']],
         ];
     }

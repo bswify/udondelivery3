@@ -1,11 +1,13 @@
 <?php
 
 use consynki\yii\input\ImageInput;
+use nenad\passwordStrength\PasswordInput;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use backend\models\Location;
 use yii\web\JsExpression;
+use borales\extensions\phoneInput\PhoneInput;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Restaurant */
@@ -16,16 +18,19 @@ use yii\web\JsExpression;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'ResName')->textarea(['rows' => 1]) ?>
+    <?= $form->field($model, 'ResName')->textInput() ?>
 
     <?= $form->field($model, 'ResAddress')->textarea(['rows' => 5]) ?>
 
     <?= $form->field($model, 'ResStatus')->dropDownList(
         ['ไม่อนุมัติ' => 'ไม่อนุมัติ', 'อนุมัติ' => 'อนุมัติ']) ?>
 
-    <?= $form->field($model, 'ResLowPrice')->textInput() ?>
+    <?= $form->field($model, 'ResLowPrice')->textInput(['type' => 'number']) ?>
 
-    <?= $form->field($model, 'ResTel')->textarea(['rows' => 1]) ?>
+    <?= $form->field($model, 'ResTel')->widget(PhoneInput::className(), [
+    'jsOptions' => [
+        'preferredCountries' => ['th']]
+]) ?>
 
     <?= $form->field($model, 'ResTimeStart')->widget(\janisto\timepicker\TimePicker::className(), [
     //'language' => 'fi',
@@ -47,13 +52,14 @@ use yii\web\JsExpression;
     ]
 ]) ?>
 
+
     <?= $form->field($model, 'IDLocation')->dropDownList(
         ArrayHelper::map(Location::find()->all(),'IDLocation','LocationName'),
         ['promp'=>'เลือกตำแหน่ง'])  ?>
 
-    <?= $form->field($model, 'RUsername')->textarea(['rows' => 1]) ?>
+    <?= $form->field($model, 'RUsername')->textInput() ?>
 
-    <?= $form->field($model, 'Rpasswords')->textarea(['rows' => 1]) ?>
+    <?= $form->field($model, 'Rpasswords')->widget(PasswordInput::className(), []) ?>
 
     <?= $form->field($model, 'ResImg')->widget(ImageInput::className(), [
 		'value' => '/img/current-image.png' //Optional current value
@@ -89,9 +95,7 @@ use yii\web\JsExpression;
         ]
     ])  ?>
 
-    <?= $form->field($model, 'LoginType')->dropDownList(
-        ['promp'=>'เลือกประเภทผู้ใช้งาน','แอดมิน' => 'แอดมิน', 'เจ้าของร้าน' => 'เจ้าของร้าน'
-        ,'ลูกค้า' => 'ลูกค้า','พนักงานจัดส่ง' => 'พนักงานจัดส่ง']) ?>
+    <?= $form->field($model, 'LoginType')->hiddenInput(['value'=>'เจ้าของร้าน'])->label(false) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

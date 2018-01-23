@@ -34,8 +34,8 @@ class Orderdetails extends \yii\db\ActiveRecord
         return [
             [['IDFood', 'IDFoodDetails', 'AmountFood'], 'required'],
             [['IDFood', 'IDFoodDetails', 'AmountFood'], 'integer'],
-            [['IDFood'], 'unique'],
-            [['IDFoodDetails'], 'unique'],
+            // [['IDFood'], 'unique'],
+            // [['IDFoodDetails'], 'unique'],
             [['IDFood'], 'exist', 'skipOnError' => true, 'targetClass' => Food::className(), 'targetAttribute' => ['IDFood' => 'IDFood']],
             [['IDFoodDetails'], 'exist', 'skipOnError' => true, 'targetClass' => Fooddetails::className(), 'targetAttribute' => ['IDFoodDetails' => 'IDFoodDetails']],
         ];

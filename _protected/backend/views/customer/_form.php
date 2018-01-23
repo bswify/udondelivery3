@@ -1,5 +1,6 @@
 <?php
 use consynki\yii\input\ImageInput;
+use nenad\passwordStrength\PasswordInput;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use borales\extensions\phoneInput\PhoneInput;
@@ -28,13 +29,12 @@ use borales\extensions\phoneInput\PhoneInput;
         'preferredCountries' => ['th']]
 ]) ?>
 
+
     <!-- <?= $form->field($model, 'CUsername')->textarea(['rows' => 1]) ?>
 
-    <?= $form->field($model, 'CPasswords')->textarea(['rows' => 1]) ?> -->
+    <?= $form->field($model, 'CPasswords')->widget(PasswordInput::className(), []) ?> -->
 
-    <?= $form->field($model, 'LoginType')->dropDownList(
-        ['promp'=>'เลือกประเภทผู้ใช้งาน','แอดมิน' => 'แอดมิน', 'เจ้าของร้าน' => 'เจ้าของร้าน'
-        ,'ลูกค้า' => 'ลูกค้า','พนักงานจัดส่ง' => 'พนักงานจัดส่ง']) ?>
+    <?= $form->field($model, 'LoginType')->hiddenInput(['value'=>'ลูกค้า'])->label(false) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

@@ -18,9 +18,9 @@ use frontend\models\Foodtype;
 		'value' => '/img/current-image.png' //Optional current value
     ]) ?>
 
-    <?= $form->field($model, 'FoodName')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'FoodName')->textarea(['rows' => 1]) ?>
 
-    <?= $form->field($model, 'FoodPrice')->textInput() ?>
+    <?= $form->field($model, 'FoodPrice')->textInput(['type' => 'number']) ?>
 
     <?= $form->field($model, 'IDFoodType')->dropDownList(
         ArrayHelper::map(Foodtype::find()->all(),'IDFoodType','FoodTypeName'),

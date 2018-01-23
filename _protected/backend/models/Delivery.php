@@ -34,8 +34,8 @@ class Delivery extends \yii\db\ActiveRecord
         return [
             [['DeliveryPrice', 'IDDeliveryTime', 'IDDeliveryPro'], 'required'],
             [['DeliveryPrice', 'IDDeliveryTime', 'IDDeliveryPro'], 'integer'],
-            [['IDDeliveryPro'], 'unique'],
-            [['IDDeliveryTime'], 'unique'],
+//            [['IDDeliveryPro'], 'unique'],
+//            [['IDDeliveryTime'], 'unique'],
             [['IDDeliveryPro'], 'exist', 'skipOnError' => true, 'targetClass' => Deliverypro::className(), 'targetAttribute' => ['IDDeliveryPro' => 'IDDeliveryPro']],
             [['IDDeliveryTime'], 'exist', 'skipOnError' => true, 'targetClass' => Deliverytime::className(), 'targetAttribute' => ['IDDeliveryTime' => 'IDDeliveryTime']],
         ];

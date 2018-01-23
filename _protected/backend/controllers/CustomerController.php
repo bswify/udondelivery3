@@ -2,9 +2,12 @@
 
 namespace backend\controllers;
 
+use backend\models\Customeraddress;
+use backend\models\CustomeraddressSearch;
 use Yii;
 use backend\models\Customer;
 use backend\models\CustomerSearch;
+use yii\db\Query;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -28,6 +31,27 @@ class CustomerController extends Controller
             ],
         ];
     }
+     public function actionTest(){
+//         echo "Testttttttttttttttttttt";
+         $query = new Query();
+         $data = $query->select("*")
+             ->from("customer")
+             ->all();
+
+         print_r($data);
+
+         echo "<br/>";
+
+         foreach ($data as $item){
+             $result = $item['IDCustomer'];
+             $result2 = $item['CustomerFName'];
+             echo "result : ".$result;
+             echo "<br/>result2 : ".$result2;
+         }
+
+
+
+     }
 
     /**
      * Lists all Customer models.
@@ -37,6 +61,9 @@ class CustomerController extends Controller
     {
         $searchModel = new CustomerSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+//        print_r($dataProvider->models->IDCustomer);
+
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -52,6 +79,11 @@ class CustomerController extends Controller
      */
     public function actionView($id)
     {
+//        $cusAddress = new CustomeraddressSearch();
+//        $dataProvider = $cusAddress->search($id);
+//
+//        print_r($dataProvider->models);
+
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
