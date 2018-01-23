@@ -32,8 +32,8 @@ class Employee extends \yii\db\ActiveRecord
     {
         return [
             [['EmpFName', 'EmpLname', 'EmpPhone', 'EUsername', 'Epasswords', 'LoginType'], 'required'],
-            [['EmpFName', 'EmpLname', 'EUsername', 'Epasswords', 'LoginType'], 'string'],
-            [['EmpPhone'], 'integer'],
+            [['EmpFName', 'EmpLname', 'EmpPhone','EUsername', 'Epasswords', 'LoginType'], 'string'],
+
         ];
     }
 

@@ -15,6 +15,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'DeliveryTime')->widget(\janisto\timepicker\TimePicker::className(), [
     //'language' => 'fi',
     'mode' => 'time',
+    'language' => 'th',
     'clientOptions'=>[
         //'dateFormat' => 'yy-mm-dd',
         'timeFormat' => 'HH:mm:ss',

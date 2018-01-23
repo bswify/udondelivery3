@@ -9,6 +9,7 @@ use backend\models\Location;
 use yii\web\JsExpression;
 use borales\extensions\phoneInput\PhoneInput;
 
+
 /* @var $this yii\web\View */
 /* @var $model backend\models\Restaurant */
 /* @var $form yii\widgets\ActiveForm */
@@ -17,6 +18,7 @@ use borales\extensions\phoneInput\PhoneInput;
 <div class="restaurant-form">
 
     <?php $form = ActiveForm::begin(); ?>
+  
 
     <?= $form->field($model, 'ResName')->textInput() ?>
 
@@ -27,24 +29,27 @@ use borales\extensions\phoneInput\PhoneInput;
 
     <?= $form->field($model, 'ResLowPrice')->textInput(['type' => 'number']) ?>
 
-    <?= $form->field($model, 'ResTel')->widget(PhoneInput::className(), [
-    'jsOptions' => [
-        'preferredCountries' => ['th']]
-]) ?>
+    <?= $form->field($model, 'ResTel')->widget(\yii\widgets\MaskedInput::className(), [
+    'mask' => '999-999-9999'])  ?>
 
     <?= $form->field($model, 'ResTimeStart')->widget(\janisto\timepicker\TimePicker::className(), [
     //'language' => 'fi',
     'mode' => 'time',
+    'language' => 'th',
     'clientOptions'=>[
         //'dateFormat' => 'yy-mm-dd',
         'timeFormat' => 'HH:mm:ss',
         'showSecond' => true,
     ]
 ]) ?>
+    <!-- <= $form->field($model, 'ResTimeStart')->widget(\yii\widgets\MaskedInput::className(),[
+    'name' => 'input-31',
+    'clientOptions' => ['alias' =>  'date']]) ?> -->
 
     <?= $form->field($model, 'ResTimeEnd')->widget(\janisto\timepicker\TimePicker::className(), [
     //'language' => 'fi',
     'mode' => 'time',
+    'language' => 'th',
     'clientOptions'=>[
         //'dateFormat' => 'yy-mm-dd',
         'timeFormat' => 'HH:mm:ss',

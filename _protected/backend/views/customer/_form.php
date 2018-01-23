@@ -3,7 +3,7 @@ use consynki\yii\input\ImageInput;
 use nenad\passwordStrength\PasswordInput;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use borales\extensions\phoneInput\PhoneInput;
+
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Customer */
@@ -24,15 +24,13 @@ use borales\extensions\phoneInput\PhoneInput;
 
     <?= $form->field($model, 'CustomerPoint')->textInput(['type' => 'number']) ?>
 
-    <?= $form->field($model, 'CustomerPhone')->widget(PhoneInput::className(), [
-    'jsOptions' => [
-        'preferredCountries' => ['th']]
-]) ?>
+    <?= $form->field($model, 'CustomerPhone')->widget(\yii\widgets\MaskedInput::className(), [
+    'mask' => '999-999-9999'])  ?>
 
 
-    <!-- <?= $form->field($model, 'CUsername')->textarea(['rows' => 1]) ?>
+    <?= $form->field($model, 'CUsername')->textarea(['rows' => 1]) ?>
 
-    <?= $form->field($model, 'CPasswords')->widget(PasswordInput::className(), []) ?> -->
+    <?= $form->field($model, 'CPasswords')->widget(PasswordInput::className(), []) ?>
 
     <?= $form->field($model, 'LoginType')->hiddenInput(['value'=>'ลูกค้า'])->label(false) ?>
 

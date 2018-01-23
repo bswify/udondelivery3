@@ -17,6 +17,7 @@ use backend\models\Employee;
     <?= $form->field($model, 'OrderDate')->widget(\janisto\timepicker\TimePicker::className(), [
     //'language' => 'fi',
     'mode' => 'date',
+    'language' => 'th',
     'clientOptions'=>[
         'dateFormat' => 'yy-mm-dd',
         //'timeFormat' => 'HH:mm:ss',

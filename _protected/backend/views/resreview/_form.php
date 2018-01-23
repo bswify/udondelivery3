@@ -18,7 +18,9 @@ use backend\models\Customer;
     <?= $form->field($model, 'ResReviewDate')->widget(\janisto\timepicker\TimePicker::className(), [
     //'language' => 'fi',
     'mode' => 'date',
+    'language' => 'th',
     'clientOptions'=>[
+        
         'dateFormat' => 'yy-mm-dd',
         //'timeFormat' => 'HH:mm:ss',
         'showSecond' => true,

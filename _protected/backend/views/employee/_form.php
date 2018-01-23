@@ -24,10 +24,9 @@ use nenad\passwordStrength\PasswordInput;
 
     <?= $form->field($model, 'Epasswords')->widget(PasswordInput::className(), []) ?>
 
-    <?= $form->field($model, 'EmpPhone')->widget(PhoneInput::className(), [
-    'jsOptions' => [
-        'preferredCountries' => ['th']]
-    ]) ?>
+    <?= $form->field($model, 'EmpPhone')->widget(\yii\widgets\MaskedInput::className(), [
+    'mask' => '999-999-9999',
+])  ?>
 
     <?= $form->field($model, 'LoginType')->hiddenInput(['value'=>'พนักงานจัดส่ง'])->label(false) ?>
 

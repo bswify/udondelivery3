@@ -40,7 +40,7 @@ class Customer extends \yii\db\ActiveRecord
             [['CustomerImage', 'CUsername', 'CPasswords', 'LoginType'], 'string'],
             [['CustomerPoint'], 'integer'],
             [['CustomerFName', 'CustomerLName'], 'string', 'max' => 255],
-            [['CustomerPhone'], 'string', 'max' => 10],
+           
         ];
     }
 
