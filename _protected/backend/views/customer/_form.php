@@ -18,9 +18,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'CustomerLName')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'CustomerImage')->widget(ImageInput::className(), [
+    <!-- <= $form->field($model, 'CustomerImage')->widget(ImageInput::className(), [
 		'value' => '/img/current-image.png' //Optional current value
-    ]) ?>
+    ]) ?> -->
+
+     <?= $form->field($model, 'CustomerImage')->fileInput()?>
 
     <?= $form->field($model, 'CustomerPoint')->textInput(['type' => 'number']) ?>
 

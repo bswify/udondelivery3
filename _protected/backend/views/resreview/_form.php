@@ -31,9 +31,14 @@ use backend\models\Customer;
 
     <?= $form->field($model, 'ResComment')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'ResReviewImage')->widget(ImageInput::className(), [
+    <!-- <= $form->field($model, 'ResReviewImage')->widget(ImageInput::className(), [
 		'value' => '/img/current-image.png' //Optional current value
-    ]) ?>
+    ]) ?> -->
+    <?= $form->field($model, 'ResReviewImage')->fileInput(['multiple' => true])?>
+    <!-- <div class="well">
+        <= $model->getPhotosViewer(); ?>
+    </div> -->
+
 
     <?= $form->field($model, 'IDRestaurant')->dropDownList(
         ArrayHelper::map(Restaurant::find()->all(),'IDRestaurant','ResName'),

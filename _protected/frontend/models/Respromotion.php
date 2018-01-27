@@ -36,7 +36,7 @@ class Respromotion extends \yii\db\ActiveRecord
             [['ResPromotionName'], 'string'],
             [[ 'IDRestaurant'], 'integer'],
             [['ResPromotionStart', 'ResPromotionEnd'], 'safe'],
-            [['IDRestaurant'], 'unique'],
+//            [['IDRestaurant'], 'unique'],
             [['IDRestaurant'], 'exist', 'skipOnError' => true, 'targetClass' => Restaurant::className(), 'targetAttribute' => ['IDRestaurant' => 'IDRestaurant']],
         ];
     }

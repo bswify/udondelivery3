@@ -27,11 +27,8 @@ return [
 
         'session' => [
             'name' => 'FRONTENDSESSION',//ชื่อ Session
-            'cookieParams' => [
-                'httpOnly' => true,
-                'path'     => '/',
-            ],
           ],
+          
        
         // here you can set theme used for your frontend application 
         // - template comes with: 'default', 'slate', 'spacelab' and 'cerulean'

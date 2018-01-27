@@ -8,6 +8,7 @@ use backend\models\RestaurantSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * RestaurantController implements the CRUD actions for Restaurant model.
@@ -20,6 +21,22 @@ class RestaurantController extends Controller
     public function behaviors()
     {
         return [
+
+//            'access' => [
+//                'class' => AccessControl::className(),
+//                'rules' => [
+//                  [
+//                    'actions' => ['login', 'error'],
+//                    'allow' => true,
+//                    'roles' => ['?'],//คนที่ยังไม่ได้ล็อคอิน
+//                  ],
+//                  [
+//                    'actions' => ['logout', 'index','delete','create','view','update'],//เฉพาะหน้าที่กำหนด
+//                    'allow' => true,//อนุญาต
+//                    'roles' => ['admin'],//คนที่ล็อคอิน ต้องเป็นแอดมิน
+//                  ],
+//                ],
+//              ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -29,6 +46,21 @@ class RestaurantController extends Controller
         ];
     }
 
+
+    // public function actionUpload()
+    // {
+    //     $model = new Restaurant();
+
+    //     if (Yii::$app->request->isPost) {
+    //         $model->ResImg = UploadedFile::getInstance($model, 'ResImg');
+    //         if ($model->upload()) {
+    //             // file is uploaded successfully
+    //             return;
+    //         }
+    //     }
+
+    //     return $this->render('upload', ['model' => $model]);
+    // }
     /**
      * Lists all Restaurant models.
      * @return mixed
@@ -66,13 +98,24 @@ class RestaurantController extends Controller
     {
         $model = new Restaurant();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->IDRestaurant]);
-        }
+        // if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        //     return $this->redirect(['view', 'id' => $model->IDRestaurant]);
+        // }
 
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        // return $this->render('create', [
+        //     'model' => $model,
+        // ]);
+
+//แก้ไขใหม่
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->ResImg = $model->upload($model,'ResImg');
+            $model->save();
+            return $this->redirect(['view', 'id' => $model->IDRestaurant]);
+          } else {
+            return $this->render('create', [
+              'model' => $model,
+            ]);
+          }
     }
 
     /**
@@ -86,13 +129,23 @@ class RestaurantController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->IDRestaurant]);
-        }
+        // if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        //     return $this->redirect(['view', 'id' => $model->IDRestaurant]);
+        // }
 
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+        // return $this->render('update', [
+        //     'model' => $model,
+        // ]);
+//แก้ไขใหม่
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->ResImg = $model->upload($model,'ResImg');
+            $model->save();
+            return $this->redirect(['view', 'id' => $model->IDRestaurant]);
+        }  else {
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+        }
     }
 
     /**

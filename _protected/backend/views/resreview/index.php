@@ -16,22 +16,30 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('เพิ่มข้อมูลรีวิวร้านอาหาร', ['create'], ['class' => 'btn btn-success']) ?>
+        <!-- <= Html::a('เพิ่มข้อมูลรีวิวร้านอาหาร', ['create'], ['class' => 'btn btn-success']) ?> -->
     </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+           // ['class' => 'yii\grid\SerialColumn'],
 
-            'IDResReview',
+            //'IDResReview',
             'ResReviewDate',
             'ResReviewScore',
             'ResComment:ntext',
             'ResReviewImage:ntext',
             //'IDRestaurant',
-            //'IDCustomer',
+            [
+                'attribute' => 'IDRestaurant',
+                'value' => 'restaurant.ResName',
+            ],
+           // 'IDCustomer',
+            [
+                'attribute' => 'IDCustomer',
+                'value' => 'customer.CustomerFName',
+            ],
 
             [
                 'class' => 'yii\grid\ActionColumn',

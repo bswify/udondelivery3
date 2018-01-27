@@ -43,6 +43,8 @@ class FoodSearch extends Food
     {
         $query = Food::find();
 
+        $restaurantId = $this->searchResId($params);
+
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
@@ -58,17 +60,28 @@ class FoodSearch extends Food
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
-            'IDFood' => $this->IDFood,
-            'FoodPrice' => $this->FoodPrice,
-            'IDFoodType' => $this->IDFoodType,
-            'IDRestaurant' => $this->IDRestaurant,
-        ]);
+//        $query->andFilterWhere([
+//            'IDFood' => $this->IDFood,
+//            'FoodPrice' => $this->FoodPrice,
+//            'IDFoodType' => $this->IDFoodType,
+//            'IDRestaurant' => $this->IDRestaurant,
+//        ]);
 
-        $query->andFilterWhere(['like', 'FoodImg', $this->FoodImg])
-            ->andFilterWhere(['like', 'FoodName', $this->FoodName])
-            ->andFilterWhere(['like', 'MenuTypeName', $this->MenuTypeName]);
+//        $query->andFilterWhere(['like', 'FoodImg', $this->FoodImg])
+//            ->andFilterWhere(['like', 'FoodName', $this->FoodName])
+//            ->andFilterWhere(['like', 'MenuTypeName', $this->MenuTypeName]);
+        $query->where(['IDRestaurant' => $this->IDRestaurant = $restaurantId]);
 
         return $dataProvider;
+    }
+
+    /**
+     * @param $userid
+     * @return \yii\db\ActiveQuery
+     */
+    private function searchResId($userid){
+        return $qurey = Restaurant::find()
+            ->select("IDRestaurant")
+            ->where(['IDUser' => $userid]);
     }
 }

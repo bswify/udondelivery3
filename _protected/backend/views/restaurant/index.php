@@ -23,9 +23,44 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+           //['class' => 'yii\grid\SerialColumn'],
 
-            'IDRestaurant',
+           // 'IDRestaurant',
+            // [
+            //     'options'=>['style'=>'width:150px;'],
+            //     'format'=>'raw',
+            //     'attribute'=>'ResImg',
+            //     'value'=>function($model){
+            //       return Html::tag('div','',[
+            //         'style'=>'width:150px;height:95px;
+            //                   border-top: 10px solid rgba(255, 255, 255, .46);
+            //                   background-image:url('.$model->photoViewer.');
+            //                   background-size: cover;
+            //                   background-position:center center;
+            //                   background-repeat:no-repeat;
+            //                   ']);
+            //     }
+            // ],
+            [
+                'options'=>['style'=>'width:150px;'],
+                'format'=>'raw',
+                'attribute'=>'ResImg',
+                'value'=>function($model){
+                  return Html::tag('div','',[
+                    'style'=>'width:100px;height:100px;
+                              border-top: 10px solid rgba(255, 255, 255, .46);
+                              background-image:url('.Yii::getAlias('@uploadUrl').'/images/Restaurantimg'.'/'.$model->ResImg.');
+                              background-size: cover;
+                              background-position:center center;
+                              background-repeat:no-repeat;
+                              align-items: center;margin: auto;
+                              ']);
+                            }
+                ],
+
+
+
+
             'ResName:ntext',
             'ResAddress:ntext',
             'ResStatus:ntext',

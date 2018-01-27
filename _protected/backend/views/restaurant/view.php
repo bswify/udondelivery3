@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'IDRestaurant',
+           // 'IDRestaurant',
             'ResName:ntext',
             'ResAddress:ntext',
             'ResStatus:ntext',
@@ -37,11 +37,21 @@ $this->params['breadcrumbs'][] = $this->title;
             'ResTimeStart',
             'ResTimeEnd',
             'IDLocation',
-            'RUsername:ntext',
-            'Rpasswords:ntext',
-            'ResImg:ntext',
-            'latlng:ntext',
-            'LoginType:ntext',
+            'IDUser',
+//            'RUsername:ntext',
+//           // 'Rpasswords:ntext',
+//            [
+//                'attribute'=>'Rpasswords',
+//                'value'=>'********'
+//            ],
+            //'ResImg:ntext',
+            [
+                'format'=>'raw',
+                'attribute'=>'ResImg',
+                'value'=>Html::img($model->photoViewer,['class'=>'img-thumbnail','style'=>'width:200px;'])
+            ],
+            // 'latlng:ntext',
+            // 'LoginType:ntext',
         ],
     ]) ?>
 

@@ -44,6 +44,9 @@ class FooddetailsSearch extends Fooddetails
         $query = Fooddetails::find();
 
         // add conditions that should always apply here
+        $resId = $this->searchResId($params);
+        $foodId = $this->searchFoodId($resId);
+
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -58,14 +61,29 @@ class FooddetailsSearch extends Fooddetails
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
-            'IDFoodDetails' => $this->IDFoodDetails,
-            'IDFood' => $this->IDFood,
-            'FoodDetailsPrice' => $this->FoodDetailsPrice,
-        ]);
+//        $query->andFilterWhere([
+//            'IDFoodDetails' => $this->IDFoodDetails,
+//            'IDFood' => $this->IDFood,
+//            'FoodDetailsPrice' => $this->FoodDetailsPrice,
+//        ]);
+        $query->where(['IDFood' => $this->IDFood = $foodId]);
 
-        $query->andFilterWhere(['like', 'FoodDetailName', $this->FoodDetailName]);
+        //$query->andFilterWhere(['like', 'FoodDetailName', $this->FoodDetailName]);
 
         return $dataProvider;
+    }
+    private function searchResId($userid){
+        return $qurey = Restaurant::find()
+            ->select("IDRestaurant")
+            ->where(['IDUser' => $userid]);
+    }
+
+    private function searchFoodId($resId)
+    {
+        return Food::find()
+            ->select('	IDFood')
+            ->distinct(true)
+            ->where(['IDRestaurant' => $resId])
+            ->all();
     }
 }

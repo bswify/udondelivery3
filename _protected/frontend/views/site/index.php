@@ -46,7 +46,7 @@ use yii\web\View;
 ?>
 <div style="display: none;"> <?php $this->title = Yii::t('app', Yii::$app->name);?> </div>
 
-
+<!-- 
 <div class="site-index">
 
     <div class="jumbotron">
@@ -107,4 +107,4 @@ use yii\web\View;
         </div>
 
     </div>
-</div>
+</div> -->

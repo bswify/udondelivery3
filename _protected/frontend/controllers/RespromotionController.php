@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use frontend\models\Restaurant;
 use Yii;
 use frontend\models\Respromotion;
 use frontend\models\RespromotionSearch;
@@ -35,8 +36,10 @@ class RespromotionController extends Controller
      */
     public function actionIndex()
     {
+        $userid = Yii::$app->user->identity->id;
+
         $searchModel = new RespromotionSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search($userid);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -64,7 +67,16 @@ class RespromotionController extends Controller
      */
     public function actionCreate()
     {
+        //$model = new Respromotion();
+        $foodSearch = new RespromotionSearch();
+//ดึงรหัสรา้นและรหัสยูเซอมา
+        $userid = Yii::$app->user->identity->id;
+        $resId = $this->searchResId($userid);
+
         $model = new Respromotion();
+        $model->IDRestaurant = $resId[0];
+
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->IDResPromotion]);
@@ -123,5 +135,13 @@ class RespromotionController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+    private function searchResId($userid)
+    {
+        return Restaurant::find()
+            ->select('IDRestaurant')
+            ->distinct(true)
+            ->where(['IDUser' => $userid])
+            ->all();
     }
 }

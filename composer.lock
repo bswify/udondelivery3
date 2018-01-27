@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce9d2d8dd9b9b1b111e3de4b5f4125af",
+    "content-hash": "b5b15aaa4b4d605215ed30fabd5d3940",
     "packages": [
         {
             "name": "2amigos/yii2-date-picker-widget",
@@ -68,6 +68,56 @@
             "time": "2017-07-05T05:52:03+00:00"
         },
         {
+            "name": "2amigos/yii2-google-maps-library",
+            "version": "1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/2amigos/yii2-google-maps-library.git",
+                "reference": "540fc44a72f515532e376d6c59948cafd31fb908"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/2amigos/yii2-google-maps-library/zipball/540fc44a72f515532e376d6c59948cafd31fb908",
+                "reference": "540fc44a72f515532e376d6c59948cafd31fb908",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "6.*",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii-extension",
+            "autoload": {
+                "psr-4": {
+                    "dosamigos\\google\\maps\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Antonio Ramirez",
+                    "email": "ramirez.cobos@gmail.com",
+                    "homepage": "http://www.ramirezcobos.com"
+                },
+                {
+                    "name": "2amigOS! Consulting LLC",
+                    "email": "hola@2amigos.us",
+                    "homepage": "http://2amigos.us"
+                }
+            ],
+            "description": "Google Maps API library for Yii2.",
+            "keywords": [
+                "extension",
+                "google",
+                "library",
+                "maps",
+                "yii"
+            ],
+            "time": "2018-01-15T23:01:17+00:00"
+        },
+        {
             "name": "almasaeed2010/adminlte",
             "version": "v2.4.2",
             "source": {
@@ -106,6 +156,51 @@
                 "web"
             ],
             "time": "2017-10-09T16:32:18+00:00"
+        },
+        {
+            "name": "borales/yii2-phone-input",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Borales/yii2-phone-input.git",
+                "reference": "0a9b27e552e165243544818c533c4fd86702bcf2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Borales/yii2-phone-input/zipball/0a9b27e552e165243544818c533c4fd86702bcf2",
+                "reference": "0a9b27e552e165243544818c533c4fd86702bcf2",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/intl-tel-input": "^11",
+                "giggsey/libphonenumber-for-php": "^8",
+                "yiisoft/yii2": ">=2.0.1"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "borales\\extensions\\phoneInput\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Borales (Alexandr Bordun)",
+                    "email": "bordun.alexandr@gmail.com"
+                }
+            ],
+            "description": "Yii2 International telephone numbers - Asset Bundle, Behavior, Validator, Widget",
+            "homepage": "https://github.com/Borales/yii2-phone-input",
+            "keywords": [
+                "international telephone numbers",
+                "intl-tel-input",
+                "libphonenumber",
+                "yii2"
+            ],
+            "time": "2017-06-11T08:24:02+00:00"
         },
         {
             "name": "bower-asset/bootstrap",
@@ -245,6 +340,31 @@
             ]
         },
         {
+            "name": "bower-asset/intl-tel-input",
+            "version": "v11.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jackocnr/intl-tel-input.git",
+                "reference": "eff3b2210a1f9e7c72fa1f9af8987c5f60411307"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jackocnr/intl-tel-input/zipball/eff3b2210a1f9e7c72fa1f9af8987c5f60411307",
+                "reference": "eff3b2210a1f9e7c72fa1f9af8987c5f60411307",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.7"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "./build/js/intlTelInput.js",
+                    "./build/css/intlTelInput.css"
+                ]
+            }
+        },
+        {
             "name": "bower-asset/jquery",
             "version": "3.2.1",
             "source": {
@@ -273,6 +393,46 @@
                 "javascript",
                 "jquery",
                 "library"
+            ]
+        },
+        {
+            "name": "bower-asset/jquery-locationpicker-plugin",
+            "version": "0.1.16",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Logicify/jquery-locationpicker-plugin.git",
+                "reference": "fac8658119043e830e0cbccd14b8b22bde08436b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Logicify/jquery-locationpicker-plugin/zipball/fac8658119043e830e0cbccd14b8b22bde08436b",
+                "reference": "fac8658119043e830e0cbccd14b8b22bde08436b",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "dist/locationpicker.jquery.js",
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "node_modules",
+                    "bower_components",
+                    "test",
+                    "tests",
+                    "examples"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "This plug-in allows finding and selecting a location on the Google map. Along with single point selection, it allows area selection by choosing a point and specifying a radius. The selection can be saved to any HTML input element or processed by Javascript with callback support. An optional automatic address resolver can reverse geocode the selection to an address. The plug-in also supports searching by address typed into the bound input element which uses auto-complete feature from Google API to make the search process easier. In this case the marker will be automatically positioned on the map after successful address resolution.",
+            "keywords": [
+                "gmapapi",
+                "googlemap",
+                "input",
+                "jquery-plugin",
+                "location",
+                "map",
+                "radius"
             ]
         },
         {
@@ -500,6 +660,49 @@
                 "yii"
             ],
             "time": "2013-12-10T17:49:58+00:00"
+        },
+        {
+            "name": "consynki/yii2-image-input",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/levi-putna/yii2-image-input.git",
+                "reference": "da8362fabe3a77e4a054907e2793728cb20563d2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/levi-putna/yii2-image-input/zipball/da8362fabe3a77e4a054907e2793728cb20563d2",
+                "reference": "da8362fabe3a77e4a054907e2793728cb20563d2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "consynki\\yii\\input\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Levi Putna",
+                    "email": "levi.putna@consynki.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Yii2input widget to allow a better drag drop image upload",
+            "keywords": [
+                "image",
+                "input",
+                "yii2"
+            ],
+            "time": "2016-02-05T06:52:18+00:00"
         },
         {
             "name": "dmstr/yii2-adminlte-asset",
@@ -766,6 +969,304 @@
                 "icon"
             ],
             "time": "2016-10-24T15:52:54+00:00"
+        },
+        {
+            "name": "giggsey/libphonenumber-for-php",
+            "version": "8.8.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/giggsey/libphonenumber-for-php.git",
+                "reference": "44e2fb8ee3a62c3fd00fb8a37fe0bad394992c2e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/44e2fb8ee3a62c3fd00fb8a37fe0bad394992c2e",
+                "reference": "44e2fb8ee3a62c3fd00fb8a37fe0bad394992c2e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "giggsey/locale": "^1.2",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "pear/pear-core-minimal": "^1.9",
+                "pear/pear_exception": "^1.0",
+                "pear/versioncontrol_git": "^0.5",
+                "phing/phing": "^2.7",
+                "phpunit/phpunit": "^4.8|^5.0",
+                "satooshi/php-coveralls": "^1.0",
+                "symfony/console": "^2.8|^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "8.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "libphonenumber\\": "src/"
+                },
+                "exclude-from-classmap": [
+                    "/src/data/",
+                    "/src/carrier/data/",
+                    "/src/geocoding/data/",
+                    "/src/timezone/data/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Joshua Gigg",
+                    "email": "giggsey@gmail.com",
+                    "homepage": "https://giggsey.com/"
+                }
+            ],
+            "description": "PHP Port of Google's libphonenumber",
+            "homepage": "https://github.com/giggsey/libphonenumber-for-php",
+            "keywords": [
+                "geocoding",
+                "geolocation",
+                "libphonenumber",
+                "mobile",
+                "phonenumber",
+                "validation"
+            ],
+            "time": "2018-01-09T19:14:30+00:00"
+        },
+        {
+            "name": "giggsey/locale",
+            "version": "1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/giggsey/Locale.git",
+                "reference": "e351a72ad6af6b41b690efdeffe1138fe5cc8b9c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/giggsey/Locale/zipball/e351a72ad6af6b41b690efdeffe1138fe5cc8b9c",
+                "reference": "e351a72ad6af6b41b690efdeffe1138fe5cc8b9c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "pear/pear-core-minimal": "^1.9",
+                "pear/pear_exception": "^1.0",
+                "pear/versioncontrol_git": "^0.5",
+                "phing/phing": "~2.7",
+                "phpunit/phpunit": "^4.8|^5.0",
+                "satooshi/php-coveralls": "^1.0",
+                "symfony/console": "^2.8|^3.0",
+                "symfony/filesystem": "^2.8|^3.0",
+                "symfony/finder": "^2.8|^3.0",
+                "symfony/process": "^2.8|^3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Giggsey\\Locale\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joshua Gigg",
+                    "email": "giggsey@gmail.com",
+                    "homepage": "http://giggsey.com/"
+                }
+            ],
+            "description": "Locale functions required by libphonenumber-for-php",
+            "time": "2017-11-01T21:34:27+00:00"
+        },
+        {
+            "name": "guzzlehttp/guzzle",
+            "version": "6.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/f4db5a78a5ea468d4831de7f0bf9d9415e348699",
+                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/promises": "^1.0",
+                "guzzlehttp/psr7": "^1.4",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpunit/phpunit": "^4.0 || ^5.0",
+                "psr/log": "^1.0"
+            },
+            "suggest": {
+                "psr/log": "Required for using the Log middleware"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.2-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions_include.php"
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2017-06-22T18:50:49+00:00"
+        },
+        {
+            "name": "guzzlehttp/promises",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/promises.git",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Promise\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle promises library",
+            "keywords": [
+                "promise"
+            ],
+            "time": "2016-12-20T10:07:11+00:00"
+        },
+        {
+            "name": "guzzlehttp/psr7",
+            "version": "1.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "homepage": "https://github.com/Tobion"
+                }
+            ],
+            "description": "PSR-7 message implementation that also provides common utility methods",
+            "keywords": [
+                "http",
+                "message",
+                "request",
+                "response",
+                "stream",
+                "uri",
+                "url"
+            ],
+            "time": "2017-03-20T17:10:46+00:00"
         },
         {
             "name": "janisto/yii2-timepicker",
@@ -1188,6 +1689,98 @@
                 "random"
             ],
             "time": "2017-09-27T21:40:39+00:00"
+        },
+        {
+            "name": "pigochu/yii2-jquery-locationpicker",
+            "version": "0.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pigochu/yii2-jquery-locationpicker.git",
+                "reference": "0f4cc4145a5c9b389ebe545c67d4890d9735ae85"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pigochu/yii2-jquery-locationpicker/zipball/0f4cc4145a5c9b389ebe545c67d4890d9735ae85",
+                "reference": "0f4cc4145a5c9b389ebe545c67d4890d9735ae85",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery-locationpicker-plugin": ">=0.1.15"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "pigolab\\locationpicker\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pigo Chu",
+                    "email": "pigochu@gmail.com"
+                }
+            ],
+            "description": "jquery location picker widget for yii2",
+            "homepage": "https://github.com/pigochu/yii2-jquery-locationpicker",
+            "keywords": [
+                "extension",
+                "locationpicker",
+                "yii2"
+            ],
+            "time": "2018-01-19T17:58:40+00:00"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2016-08-06T14:39:51+00:00"
         },
         {
             "name": "psr/log",

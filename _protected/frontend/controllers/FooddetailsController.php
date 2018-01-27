@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use frontend\models\Food;
 use Yii;
 use frontend\models\Fooddetails;
 use frontend\models\FooddetailsSearch;
@@ -35,8 +36,12 @@ class FooddetailsController extends Controller
      */
     public function actionIndex()
     {
+        $userid = Yii::$app->user->identity->id;
+
         $searchModel = new FooddetailsSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+       // $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search($userid);
+
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -64,7 +69,12 @@ class FooddetailsController extends Controller
      */
     public function actionCreate()
     {
+        $userid = Yii::$app->user->identity->id;
+        $resId = $this->searchResId($userid);
+        $foodid = $this->searchFoodId($resId);
+
         $model = new Fooddetails();
+        $model->IDFood = $foodid[0];
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->IDFoodDetails]);
@@ -123,5 +133,24 @@ class FooddetailsController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+    //ค้นหารหัสร้าน
+    private function searchResId($userid)
+    {
+        return Restaurant::find()
+            ->select('IDRestaurant')
+            ->distinct(true)
+            ->where(['IDUser' => $userid])
+            ->all();
+    }
+
+   // ค้นหารหะสอาหาร
+    private function searchFoodId($resId)
+    {
+        return Food::find()
+            ->select('	IDFood')
+            ->distinct(true)
+            ->where(['IDRestaurant' => $resId])
+            ->all();
     }
 }

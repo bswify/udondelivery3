@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model frontend\models\Restaurant */
 
 $this->title = $model->IDRestaurant;
-$this->params['breadcrumbs'][] = ['label' => 'Restaurants', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'ข้อมูลร้านอาหาร', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="restaurant-view">
@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->IDRestaurant], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->IDRestaurant], [
+        <?= Html::a('แก้ไข', ['update', 'id' => $model->IDRestaurant], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('ลบ', ['delete', 'id' => $model->IDRestaurant], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -37,11 +37,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'ResTimeStart',
             'ResTimeEnd',
             'IDLocation',
-            'RUsername:ntext',
-            'Rpasswords:ntext',
+//            'RUsername:ntext',
+//            'Rpasswords:ntext',
             'ResImg:ntext',
             'latlng:ntext',
             'LoginType:ntext',
+            'IDUser',
         ],
     ]) ?>
 

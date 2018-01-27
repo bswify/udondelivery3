@@ -5,9 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Food */
 
-$this->title = 'แก้ไขข้อมูลเมนูอาหาร: '.$model->IDFood;
+$this->title = 'แก้ไขข้อมูลเมนูอาหาร: '.$food->IDFood;
 $this->params['breadcrumbs'][] = ['label' => 'ข้อมูลเมนูอาหาร', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->IDFood, 'url' => ['view', 'id' => $model->IDFood]];
+$this->params['breadcrumbs'][] = ['label' => $food->IDFood, 'url' => ['view', 'id' => $food->IDFood]];
 $this->params['breadcrumbs'][] = 'แก้ไข';
 ?>
 <div class="food-update">
@@ -15,7 +15,8 @@ $this->params['breadcrumbs'][] = 'แก้ไข';
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
-        'model' => $model,
+        'food' => $food,
+        'fooddetails' => $fooddetails,
     ]) ?>
 
 </div>

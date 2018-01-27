@@ -35,8 +35,20 @@ class RestaurantController extends Controller
      */
     public function actionIndex()
     {
+//        if (!Yii::$app->user->isGuest)
+//        {
+//            return $this->goHome();
+//        }
+
         $searchModel = new RestaurantSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+
+        $userid = Yii::$app->user->identity->id;
+
+//        echo ($userid);
+
+//        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search($userid);
 
         return $this->render('index', [
             'searchModel' => $searchModel,

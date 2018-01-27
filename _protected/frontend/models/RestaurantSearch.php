@@ -18,8 +18,8 @@ class RestaurantSearch extends Restaurant
     public function rules()
     {
         return [
-            [['IDRestaurant', 'ResLowPrice', 'IDLocation'], 'integer'],
-            [['ResName', 'ResAddress', 'ResStatus', 'ResTel', 'ResTimeStart', 'ResTimeEnd', 'RUsername', 'Rpasswords', 'ResImg', 'latlng', 'LoginType'], 'safe'],
+            [['IDRestaurant', 'ResLowPrice', 'IDLocation', 'IDUser'], 'integer'],
+            [['ResName', 'ResAddress', 'ResStatus', 'ResTel', 'ResTimeStart', 'ResTimeEnd', 'ResImg', 'latlng', 'LoginType'], 'safe'],
         ];
     }
 
@@ -58,23 +58,25 @@ class RestaurantSearch extends Restaurant
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
-            'IDRestaurant' => $this->IDRestaurant,
-            'ResLowPrice' => $this->ResLowPrice,
-            'ResTimeStart' => $this->ResTimeStart,
-            'ResTimeEnd' => $this->ResTimeEnd,
-            'IDLocation' => $this->IDLocation,
-        ]);
+        $query->where(['IDUser' => $this->IDUser = $params]);
+//        $query->andFilterWhere([
+//            'IDUser' => $this->IDUser,
+////            'IDRestaurant' => $this->IDRestaurant,
+////            'ResLowPrice' => $this->ResLowPrice,
+////            'ResTimeStart' => $this->ResTimeStart,
+////            'ResTimeEnd' => $this->ResTimeEnd,
+////            'IDLocation' => $this->IDLocation,
+//        ]);
 
-        $query->andFilterWhere(['like', 'ResName', $this->ResName])
-            ->andFilterWhere(['like', 'ResAddress', $this->ResAddress])
-            ->andFilterWhere(['like', 'ResStatus', $this->ResStatus])
-            ->andFilterWhere(['like', 'ResTel', $this->ResTel])
-            ->andFilterWhere(['like', 'RUsername', $this->RUsername])
-            ->andFilterWhere(['like', 'Rpasswords', $this->Rpasswords])
-            ->andFilterWhere(['like', 'ResImg', $this->ResImg])
-            ->andFilterWhere(['like', 'latlng', $this->latlng])
-            ->andFilterWhere(['like', 'LoginType', $this->LoginType]);
+//        $query->andFilterWhere(['like', 'ResName', $this->ResName])
+//            ->andFilterWhere(['like', 'ResAddress', $this->ResAddress])
+//            ->andFilterWhere(['like', 'ResStatus', $this->ResStatus])
+//            ->andFilterWhere(['like', 'ResTel', $this->ResTel])
+////            ->andFilterWhere(['like', 'RUsername', $this->RUsername])
+////            ->andFilterWhere(['like', 'Rpasswords', $this->Rpasswords])
+//            ->andFilterWhere(['like', 'ResImg', $this->ResImg])
+//            ->andFilterWhere(['like', 'latlng', $this->latlng])
+//            ->andFilterWhere(['like', 'LoginType', $this->LoginType]);
 
         return $dataProvider;
     }

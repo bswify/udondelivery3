@@ -31,7 +31,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'IDCustomer',
             'CustomerFName',
             'CustomerLName',
-            'CustomerImage:ntext',
+            //'CustomerImage:ntext',
+            [
+                'format'=>'raw',
+                'attribute'=>'CustomerImage',
+                'value'=>Html::img($model->photoViewer,['class'=>'img-thumbnail','style'=>'width:200px;'])
+            ],
             'CustomerPoint',
             'CustomerPhone',
             'CUsername:ntext',

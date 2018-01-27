@@ -3,6 +3,7 @@
 namespace frontend\models;
 
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "food".
@@ -37,15 +38,44 @@ class Food extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['FoodImg', 'FoodName', 'FoodPrice', 'IDFoodType', 'IDRestaurant', 'MenuTypeName'], 'required'],
-            [['FoodImg', 'FoodName', 'MenuTypeName'], 'string'],
+            [[ 'FoodName', 'FoodPrice', 'IDFoodType', 'IDRestaurant', 'MenuTypeName'], 'required'],
+            [[ 'FoodName', 'MenuTypeName'], 'string'],
             [['FoodPrice', 'IDFoodType', 'IDRestaurant'], 'integer'],
-            [['IDRestaurant'], 'unique'],
-            [['IDFoodType'], 'unique'],
+//            [['IDRestaurant'], 'unique'],
+//            [['IDFoodType'], 'unique'],
+            [
+                ['FoodImg'],'file',
+                'skipOnEmpty' => true,
+                'extensions' => 'png,jpg'
+            ],
             [['IDFoodType'], 'exist', 'skipOnError' => true, 'targetClass' => Foodtype::className(), 'targetAttribute' => ['IDFoodType' => 'IDFoodType']],
             [['IDRestaurant'], 'exist', 'skipOnError' => true, 'targetClass' => Restaurant::className(), 'targetAttribute' => ['IDRestaurant' => 'IDRestaurant']],
         ];
     }
+    //เพิ่มมา
+    public function upload($model,$attribute)
+    {
+        $photo  = UploadedFile::getInstance($model, $attribute);
+        $path = 'C:/xampp/htdocs/udondelivery3/uploads/images/Food/';
+        if ($this->validate() && $photo !== null) {
+
+            // $fileName = md5($photo->baseName.time()) . '.' . $photo->extension;
+            $fileName = $photo->baseName . '.' . $photo->extension;
+            if($photo->saveAs($path.'/'.$fileName)){
+                return $fileName;
+            }
+        }
+        return $model->isNewRecord ? false : $model->getOldAttribute($attribute);
+    }
+//เพิ่มมา
+    public $upload_foler ='uploads';
+    public function getUploadUrl(){
+        return Yii::getAlias('@uploadUrl').'/'.$this->upload_foler.'/';
+    }
+    public function getPhotoViewer(){
+        return empty($this->photo) ? Yii::getAlias('@uploadUrl').'/img/none.png' : $this->getUploadUrl().$this->photo;
+    }
+    //ถึงนี้
 
     /**
      * @inheritdoc

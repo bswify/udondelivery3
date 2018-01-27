@@ -8,6 +8,7 @@ use yii\helpers\ArrayHelper;
 use backend\models\Location;
 use yii\web\JsExpression;
 use borales\extensions\phoneInput\PhoneInput;
+use backend\models\Restaurant;
 
 
 /* @var $this yii\web\View */
@@ -17,7 +18,9 @@ use borales\extensions\phoneInput\PhoneInput;
 
 <div class="restaurant-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+    'options' => ['enctype' => 'multipart/form-data']
+  ]); ?>
   
 
     <?= $form->field($model, 'ResName')->textInput() ?>
@@ -62,17 +65,21 @@ use borales\extensions\phoneInput\PhoneInput;
         ArrayHelper::map(Location::find()->all(),'IDLocation','LocationName'),
         ['promp'=>'เลือกตำแหน่ง'])  ?>
 
-    <?= $form->field($model, 'RUsername')->textInput() ?>
+    
+<!--    <= $form->field($model, 'RUsername')->textInput() ?>-->
+<!---->
+<!--    <= $form->field($model, 'Rpasswords')->widget(PasswordInput::className(), []) ?>-->
 
-    <?= $form->field($model, 'Rpasswords')->widget(PasswordInput::className(), []) ?>
-
-    <?= $form->field($model, 'ResImg')->widget(ImageInput::className(), [
+    <!-- <= $form->field($model, 'ResImg')->widget(ImageInput::className(), [
 		'value' => '/img/current-image.png' //Optional current value
-    ])  ?>
+    ])  ?> -->
+
+    <!-- <= Html::img($model->getPhotoViewer(),['style'=>'width:100px;','class'=>'img-rounded']); ?> -->
+    <?= $form->field($model, 'ResImg')->fileInput()?>
 
     <?= $form->field($model, 'latlng')->widget(\pigolab\locationpicker\CoordinatesPicker::className() , [
         'key' => 'AIzaSyCP7RNiyWiYUj-4JrlrgvhXl2lRE4zIKlo' ,   // optional , Your can also put your google map api key
-        'valueTemplate' => '{latitude},{longitude}' , // Optional , this is default result format
+       // 'valueTemplate' => '{latitude},{longitude}' , // Optional , this is default result format
         'options' => [
             'style' => 'width: 100%; height: 400px',  // map canvas width and height
         ] ,
@@ -97,10 +104,15 @@ use borales\extensions\phoneInput\PhoneInput;
         ],
         'clientOptions' => [
             'radius'    => 300,
+            'location' => [
+                'latitude'  => 17.397455 ,
+                'longitude' => 102.794378,
+            ]
         ]
     ])  ?>
 
     <?= $form->field($model, 'LoginType')->hiddenInput(['value'=>'เจ้าของร้าน'])->label(false) ?>
+    <?= $form->field($model, 'IDUser')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

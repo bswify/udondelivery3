@@ -98,13 +98,25 @@ class CustomerController extends Controller
     {
         $model = new Customer();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->IDCustomer]);
-        }
+        // if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        //     return $this->redirect(['view', 'id' => $model->IDCustomer]);
+        // }
 
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        // return $this->render('create', [
+        //     'model' => $model,
+        // ]);
+
+
+        //แก้ใหม่
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->CustomerImage = $model->upload($model,'CustomerImage');
+            $model->save();
+            return $this->redirect(['view', 'id' => $model->IDCustomer]);
+          } else {
+            return $this->render('create', [
+              'model' => $model,
+            ]);
+          }
     }
 
     /**
@@ -118,13 +130,24 @@ class CustomerController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->IDCustomer]);
-        }
+        // if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        //     return $this->redirect(['view', 'id' => $model->IDCustomer]);
+        // }
 
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+        // return $this->render('update', [
+        //     'model' => $model,
+        // ]);
+
+         //แก้ใหม่
+         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->CustomerImage = $model->upload($model,'CustomerImage');
+            $model->save();
+            return $this->redirect(['view', 'id' => $model->IDCustomer]);
+          } else {
+            return $this->render('update', [
+              'model' => $model,
+            ]);
+          }
     }
 
     /**

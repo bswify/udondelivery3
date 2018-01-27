@@ -33,7 +33,7 @@ class Location extends \yii\db\ActiveRecord
             [['LocationName', 'IDLocationType'], 'required'],
             [['LocationName'], 'string'],
             [['IDLocationType'], 'integer'],
-            [['IDLocationType'], 'unique'],
+//            [['IDLocationType'], 'unique'],
             [['IDLocationType'], 'exist', 'skipOnError' => true, 'targetClass' => Locationtype::className(), 'targetAttribute' => ['IDLocationType' => 'IDLocationType']],
         ];
     }

@@ -52,13 +52,13 @@ use yii\web\JsExpression;
         ArrayHelper::map(Location::find()->all(),'IDLocation','LocationName'),
         ['promp'=>'เลือกตำแหน่ง']) ?>
 
-    <?= $form->field($model, 'RUsername')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'Rpasswords')->textarea(['rows' => 6]) ?>
+<!--    <= $form->field($model, 'RUsername')->textarea(['rows' => 6]) ?>-->
+<!---->
+<!--    <= $form->field($model, 'Rpasswords')->textarea(['rows' => 6]) ?>-->
 
     <?= $form->field($model, 'ResImg')->widget(ImageInput::className(), [
-		'value' => '/img/current-image.png' //Optional current value
-    ])   ?>
+        'value' => '/img/current-image.png' //Optional current value
+    ])  ?>
 
     <?= $form->field($model, 'latlng')->widget(\pigolab\locationpicker\CoordinatesPicker::className() , [
         'key' => 'AIzaSyCP7RNiyWiYUj-4JrlrgvhXl2lRE4zIKlo' ,   // optional , Your can also put your google map api key
@@ -91,9 +91,11 @@ use yii\web\JsExpression;
     ])  ?>
 
     <?= $form->field($model, 'LoginType')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'IDUser')->textInput() ?>
+
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('บันทึก', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

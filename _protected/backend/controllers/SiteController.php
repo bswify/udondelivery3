@@ -1,7 +1,7 @@
 <?php
 namespace backend\controllers;
 
-use common\models\LoginForm;
+use common\models\AdminsLoginForm;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -86,7 +86,7 @@ class SiteController extends Controller
         $lwe = Yii::$app->params['lwe'];
 
         // if "login with email" is true we instantiate LoginForm in "lwe" scenario
-        $lwe ? $model = new LoginForm(['scenario' => 'lwe']) : $model = new LoginForm() ;
+        $lwe ? $model = new AdminsLoginForm(['scenario' => 'lwe']) : $model = new AdminsLoginForm() ;
 
         // everything went fine, log in the user
         if ($model->load(Yii::$app->request->post()) && $model->login()) 

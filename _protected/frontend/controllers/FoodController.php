@@ -2,9 +2,14 @@
 
 namespace frontend\controllers;
 
+use frontend\models\Fooddetails;
+use frontend\models\Restaurant;
 use Yii;
 use frontend\models\Food;
 use frontend\models\FoodSearch;
+
+use yii\base\Model;
+use yii\db\Query;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -35,8 +40,12 @@ class FoodController extends Controller
      */
     public function actionIndex()
     {
+        $userid = Yii::$app->user->identity->id;
+
         $searchModel = new FoodSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+//        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search($userid);
+
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -64,15 +73,48 @@ class FoodController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Food();
+        $food = new Food();
+        $fooddetails = new Fooddetails();
+        $userid = Yii::$app->user->identity->id;
+        $resId = $this->searchResId($userid);
+        $resID = null;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->IDFood]);
+        foreach ($resId as $item) {
+            $resID = ($item->IDRestaurant);
         }
 
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        // save food
+        $food->IDRestaurant = $resID;
+
+        if ($food->load(Yii::$app->request->post()) && $food->validate()) {
+            $food->FoodImg = $food->upload($food, 'FoodImg');
+            $food->save();
+            $fooddetails->IDFood = $food->IDFood;
+
+            if ($fooddetails->load(Yii::$app->request->post()) && $fooddetails->save()) {
+
+                Yii::$app->session->setFlash('success', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
+                return $this->redirect(['view', 'id' => $food->IDFood]);
+
+            }
+        } else {
+            return $this->render('create', [
+                'food' => $food,
+                'fooddetails' => $fooddetails,
+            ]);
+        }
+    }
+
+    public function insertFooddetail($idfood)
+    {
+        $fooddetails = new Fooddetails();
+        $fooddetails->IDFood = $idfood;
+        if ($fooddetails->load(Yii::$app->request->post()) && $fooddetails->save()) {
+
+//            Yii::$app->session->setFlash('success', 'เพิ่มข้อมูลเรียบร้อยแล้ว'.$model->IDFood);
+            return $this->redirect(['view', 'id' => $idfood]);
+
+        }
     }
 
     /**
@@ -84,15 +126,44 @@ class FoodController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $food = $this->findModel($id);
+        $fooddetails = $this->findidFooddetails($id);
+        $foodDetail = null;
+        $userid = Yii::$app->user->identity->id;
+        $resId = $this->searchResId($userid);
+        $resID = null;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->IDFood]);
+
+        foreach ($resId as $item) {
+            $resID = ($item->IDRestaurant);
         }
 
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+        $food->IDRestaurant = $resID;
+
+
+
+        $foodDetail = $fooddetails[0];
+
+
+        if ($food->load(Yii::$app->request->post()) && $food->validate()) {
+            $food->FoodImg = $food->upload($food, 'FoodImg');
+            $food->save();
+            $foodDetail->IDFood = $food->IDFood;
+
+            if ($foodDetail->load(Yii::$app->request->post()) && $foodDetail->save()) {
+
+                Yii::$app->session->setFlash('success', 'เพิ่มข้อมูลเรียบร้อยแล้ว');
+                return $this->redirect(['view', 'id' => $food->IDFood]);
+
+            }
+        } else {
+            return $this->render('update', [
+                'food' => $food,
+                'fooddetails' => $foodDetail,
+            ]);
+        }
+
+
     }
 
     /**
@@ -101,9 +172,19 @@ class FoodController extends Controller
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
+     * @throws \Exception
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
      */
     public function actionDelete($id)
     {
+
+        $fooddt = $this->findidFooddetails($id);
+
+        foreach ($fooddt as $item) {
+            Fooddetails::findOne($item->IDFoodDetails)->delete();
+        }
+
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
@@ -123,5 +204,45 @@ class FoodController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+//    protected function findModelFooddetails($id)
+//    {
+//        if (($model = Fooddetails::findOne($id)) !== null) {
+//            return $model;
+//        }
+//
+//        throw new NotFoundHttpException('The requested page does not exist.');
+//    }
+
+    /**
+     * @param $userid
+     * @return mixed
+     */
+    private function searchResId($userid)
+    {
+        return Restaurant::find()
+            ->select('IDRestaurant')
+            ->distinct(true)
+            ->where(['IDUser' => $userid])
+            ->all();
+    }
+
+    private function searchFoodId($resId)
+    {
+        return Food::find()
+            ->select('	IDFood')
+            ->distinct(true)
+            ->where(['IDRestaurant' => $resId])
+            ->all();
+    }
+
+    private function findidFooddetails($foodid)
+    {
+        return Fooddetails::find()
+            ->select('*')
+            ->distinct(true)
+            ->where(['IDFood' => $foodid])
+            ->all();
     }
 }

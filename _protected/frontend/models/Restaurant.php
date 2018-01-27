@@ -3,6 +3,7 @@
 namespace frontend\models;
 
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "restaurant".
@@ -26,6 +27,7 @@ use Yii;
  * @property Respromotion $respromotion
  * @property Resreview $resreview
  * @property Location $location
+ * @property int IDUser
  */
 class Restaurant extends \yii\db\ActiveRecord
 {
@@ -43,14 +45,21 @@ class Restaurant extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ResName', 'ResAddress', 'ResStatus', 'ResLowPrice', 'ResTel', 'ResTimeStart', 'ResTimeEnd', 'IDLocation', 'RUsername', 'Rpasswords', 'ResImg', 'latlng', 'LoginType'], 'required'],
-            [['ResName', 'ResAddress', 'ResStatus', 'ResTel', 'RUsername', 'Rpasswords', 'ResImg', 'latlng', 'LoginType'], 'string'],
-            [['ResLowPrice', 'IDLocation'], 'integer'],
+            [['ResName', 'ResAddress', 'ResStatus', 'ResLowPrice', 'ResTel', 'ResTimeStart', 'ResTimeEnd','ResImg', 'IDLocation', 'latlng', 'LoginType','IDUser'], 'required'],
+            [['ResName', 'ResAddress', 'ResStatus', 'ResTel', 'latlng', 'LoginType'], 'string'],
+            [['ResLowPrice', 'IDLocation','IDUser'], 'integer'],
             [['ResTimeStart', 'ResTimeEnd'], 'safe'],
-            [['IDLocation'], 'unique'],
+//            [['IDLocation'], 'unique'],
+//            [
+//                ['ResImg'],'file',
+//                'skipOnEmpty' => true,
+//                'extensions' => 'png,jpg'
+//            ],
             [['IDLocation'], 'exist', 'skipOnError' => true, 'targetClass' => Location::className(), 'targetAttribute' => ['IDLocation' => 'IDLocation']],
         ];
     }
+
+
 
     /**
      * @inheritdoc
@@ -67,11 +76,13 @@ class Restaurant extends \yii\db\ActiveRecord
             'ResTimeStart' => 'เวลาเปิด',
             'ResTimeEnd' => 'เวลาปิด',
             'IDLocation' => 'รหัสตำแหน่ง',
-            'RUsername' => 'Username',
-            'Rpasswords' => 'password',
+//            'RUsername' => 'Username',
+//            'Rpasswords' => 'password',
             'ResImg' => 'รูปภาพ',
+
             'latlng' => 'ตำแหน่งจากgooglemap',
             'LoginType' => 'ประเภท',
+            'IDUser' => 'รหัสuser',
         ];
     }
 
@@ -102,8 +113,8 @@ class Restaurant extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getLocation()
-    {
-        return $this->hasOne(Location::className(), ['IDLocation' => 'IDLocation']);
-    }
+//    public function getLocation()
+//    {
+//        return $this->hasOne(Location::className(), ['IDLocation' => 'IDLocation']);
+//    }
 }

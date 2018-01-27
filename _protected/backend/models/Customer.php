@@ -1,6 +1,7 @@
 <?php
 
 namespace backend\models;
+use yii\web\UploadedFile;
 
 use Yii;
 
@@ -36,13 +37,41 @@ class Customer extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['CustomerFName', 'CustomerLName', 'CustomerImage', 'CustomerPoint', 'CustomerPhone', 'CUsername', 'CPasswords', 'LoginType'], 'required'],
-            [['CustomerImage', 'CUsername', 'CPasswords', 'LoginType'], 'string'],
+            [['CustomerFName', 'CustomerLName',  'CustomerPoint', 'CustomerPhone', 'CUsername', 'CPasswords', 'LoginType'], 'required'],
+            [[ 'CUsername', 'CPasswords', 'LoginType'], 'string'],
             [['CustomerPoint'], 'integer'],
             [['CustomerFName', 'CustomerLName'], 'string', 'max' => 255],
+            [
+                ['CustomerImage'],'file',
+                'skipOnEmpty' => true,
+                'extensions' => 'png,jpg'
+              ],
            
         ];
     }
+
+    public function upload($model,$attribute)
+    {
+      $photo  = UploadedFile::getInstance($model, $attribute);
+      $path = 'C:/xampp/htdocs/udondelivery3/uploads/images/Customer/';
+      if ($this->validate() && $photo !== null) {
+ 
+        // $fileName = md5($photo->baseName.time()) . '.' . $photo->extension;
+        $fileName = $photo->baseName . '.' . $photo->extension;
+        if($photo->saveAs($path.'/'.$fileName)){
+          return $fileName;
+        }
+      }
+      return $model->isNewRecord ? false : $model->getOldAttribute($attribute);
+    }
+    //เพิ่มมา
+    public function getUploadUrl(){
+        return Yii::getAlias('@uploadUrl').'/'.$this->upload_foler.'/';
+      }
+    public function getPhotoViewer(){
+        return empty($this->photo) ? Yii::getAlias('@uploadUrl').'/img/none.png' : $this->getUploadUrl().$this->photo;
+      }
+      //ถึงนี้
 
     /**
      * @inheritdoc

@@ -1,4 +1,5 @@
 <?php
+
 use consynki\yii\input\ImageInput;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -6,7 +7,7 @@ use yii\helpers\ArrayHelper;
 use frontend\models\Foodtype;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\Food */
+/* @var $food frontend\models\Food */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -14,26 +15,50 @@ use frontend\models\Foodtype;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'FoodImg')->widget(ImageInput::className(), [
-		'value' => '/img/current-image.png' //Optional current value
-    ]) ?>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="well text-center">
+                        <?= Html::img(Yii::getAlias('@ShowFoodPhoto') . '/' . $food->FoodImg, ['style' => 'width:100px;', 'class' => 'img-rounded']); ?>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <?= $form->field($food, 'FoodImg')->fileInput(['style' => 'opacity:unset;margin-top: -18px;']) ?>
+                </div>
+            </div>
 
-    <?= $form->field($model, 'FoodName')->textarea(['rows' => 1]) ?>
+            <?= $form->field($food, 'FoodName')->textarea(['rows' => 1]) ?>
 
-    <?= $form->field($model, 'FoodPrice')->textInput(['type' => 'number']) ?>
+            <?= $form->field($food, 'FoodPrice')->textInput(['type' => 'number']) ?>
 
-    <?= $form->field($model, 'IDFoodType')->dropDownList(
-        ArrayHelper::map(Foodtype::find()->all(),'IDFoodType','FoodTypeName'),
-        ['promp'=>'เลือกประเภทอาหาร']
-        ) ?>
+            <?= $form->field($food, 'IDFoodType')->dropDownList(
+                ArrayHelper::map(Foodtype::find()->all(), 'IDFoodType', 'FoodTypeName'),
+                ['promp' => 'เลือกประเภทอาหาร']
+            ) ?>
 
-    <?= $form->field($model, 'IDRestaurant')->textInput() ?>
+            <?= $form->field($food, 'MenuTypeName')->dropDownList(
+                ['เมนูธรรมดา' => 'เมนูธรรมดา', 'เมนูแนะนำ' => 'เมนูแนะนำ']) ?>
+        </div>
+    </div>
 
-    <?= $form->field($model, 'MenuTypeName')->dropDownList(
-        ['เมนูธรรมดา' => 'เมนูธรรมดา', 'เมนูแนะนำ' => 'เมนูแนะนำ']) ?>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h3>รายละเอียดอาหาร</h3>
+            <hr>
+            <?= $form->field($fooddetails, 'FoodDetailName')->textarea(['rows' => 6]) ?>
 
+            <?= $form->field($fooddetails, 'FoodDetailsPrice')->textInput() ?>
+        </div>
+    </div>
+
+
+<!--    <div class="form-group">-->
+<!--        <= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>-->
+<!--    </div>-->
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton($food->isNewRecord ? 'สร้าง' : 'แก้ไข', ['class' => $food->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('app', 'ยกเลิก'), ['food/index'], ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

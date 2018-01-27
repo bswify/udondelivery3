@@ -129,12 +129,12 @@ $this->registerJs($script, View::POS_LOAD, 'myOption'); ?>
             <p> ข้อมูลเมนูอาหาร </p>
          </a>
       </li>
-			<li>
-         <a href = "<?= Url::to(['/fooddetails/index'])?>">
-            <i class = "material-icons" > local_activity </i>
-            <p> ข้อมูลรายละเอียดอาหาร </p>
-         </a>
-      </li>
+<!--			<li>-->
+<!--         <a href = "<= Url::to(['/fooddetails/index'])?>">-->
+<!--            <i class = "material-icons" > local_activity </i>-->
+<!--            <p> ข้อมูลรายละเอียดอาหาร </p>-->
+<!--         </a>-->
+<!--      </li>-->
 			<li>
          <a href = "<?= Url::to(['/restaurant/index'])?>">
             <i class = "material-icons" > store </i>

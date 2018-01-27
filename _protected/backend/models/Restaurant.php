@@ -1,6 +1,7 @@
 <?php
 
 namespace backend\models;
+use yii\web\UploadedFile;
 
 use Yii;
 
@@ -29,6 +30,9 @@ use Yii;
  */
 class Restaurant extends \yii\db\ActiveRecord
 {
+
+    
+    public $imageFile;
     /**
      * @inheritdoc
      */
@@ -43,15 +47,43 @@ class Restaurant extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ResName', 'ResAddress', 'ResStatus', 'ResLowPrice', 'ResTel', 'ResTimeStart', 'ResTimeEnd', 'IDLocation', 'RUsername', 'Rpasswords', 'ResImg', 'latlng', 'LoginType'], 'required'],
-            [['ResName', 'ResAddress', 'ResStatus', 'ResTel', 'RUsername', 'Rpasswords', 'ResImg', 'latlng', 'LoginType'], 'string'],
-            [['ResLowPrice', 'IDLocation'], 'integer'],
+            [['ResName', 'ResAddress', 'ResStatus', 'ResLowPrice', 'ResTel', 'ResTimeStart', 'ResTimeEnd', 'IDLocation', 'latlng', 'LoginType','IDUser'], 'required'],
+            [['ResName', 'ResAddress', 'ResStatus', 'ResTel',  'latlng', 'LoginType'], 'string'],
+            [['ResLowPrice', 'IDLocation','IDUser'], 'integer'],
             [['ResTimeStart', 'ResTimeEnd'], 'safe'],
             // [['IDLocation'], 'unique'],
+            [
+                ['ResImg'],'file',
+                'skipOnEmpty' => true,
+                'extensions' => 'png,jpg'
+              ],
             [['IDLocation'], 'exist', 'skipOnError' => true, 'targetClass' => Location::className(), 'targetAttribute' => ['IDLocation' => 'IDLocation']],
         ];
     }
-
+//เพิ่มมา
+    public function upload($model,$attribute)
+    {
+      $photo  = UploadedFile::getInstance($model, $attribute);
+      $path = 'C:/xampp/htdocs/udondelivery3/uploads/images/Restaurantimg/';
+      if ($this->validate() && $photo !== null) {
+ 
+        // $fileName = md5($photo->baseName.time()) . '.' . $photo->extension;
+        $fileName = $photo->baseName . '.' . $photo->extension;
+        if($photo->saveAs($path.'/'.$fileName)){
+          return $fileName;
+        }
+      }
+      return $model->isNewRecord ? false : $model->getOldAttribute($attribute);
+    }
+//เพิ่มมา
+    public $upload_foler ='uploads';
+    public function getUploadUrl(){
+        return Yii::getAlias('@uploadUrl').'/'.$this->upload_foler.'/';
+      }
+    public function getPhotoViewer(){
+        return empty($this->photo) ? Yii::getAlias('@uploadUrl').'/img/none.png' : $this->getUploadUrl().$this->photo;
+      }
+      //ถึงนี้
     /**
      * @inheritdoc
      */
@@ -67,11 +99,12 @@ class Restaurant extends \yii\db\ActiveRecord
             'ResTimeStart' => 'เวลาเปิด',
             'ResTimeEnd' => 'เวลาปิด',
             'IDLocation' => 'รหัสตำแหน่ง',
-            'RUsername' => 'Username',
-            'Rpasswords' => 'password',
+//            'RUsername' => 'Username',
+//            'Rpasswords' => 'password',
             'ResImg' => 'รูปภาพ',
             'latlng' => 'ตำแหน่งจากgooglemap',
             'LoginType' => 'ประเภท',
+            'IDUser' => 'รหัสuser',
         ];
     }
 

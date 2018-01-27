@@ -39,12 +39,29 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+           // ['class' => 'yii\grid\SerialColumn'],
 
-            'IDCustomer',
+            //'IDCustomer',
+            [
+                'options'=>['style'=>'width:150px;'],
+                'format'=>'raw',
+                'attribute'=>'CustomerImage',
+                'value'=>function($model){
+                  return Html::tag('div','',[
+                    'style'=>'width:100px;height:100px;
+                              border-top: 10px solid rgba(255, 255, 255, .46);
+                              background-image:url('.Yii::getAlias('@uploadUrl').'/images/Customer'.'/'.$model->CustomerImage.');
+                              background-size: cover;
+                              background-position:center center;
+                              background-repeat:no-repeat;
+                              align-items: center;margin: auto;
+                              ']);
+                            }
+                ],
             'CustomerFName',
             'CustomerLName',
-            'CustomerImage:ntext',
+            //'CustomerImage:ntext',
+            
             'CustomerPoint',
             'CustomerPhone',
             //'CUsername:ntext',

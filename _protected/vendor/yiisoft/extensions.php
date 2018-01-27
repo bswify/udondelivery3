@@ -156,4 +156,31 @@ return array (
       '@janisto/timepicker' => $vendorDir . '/janisto/yii2-timepicker/src',
     ),
   ),
+  'consynki/yii2-image-input' => 
+  array (
+    'name' => 'consynki/yii2-image-input',
+    'version' => '1.0.0.0',
+    'alias' => 
+    array (
+      '@consynki/yii/input' => $vendorDir . '/consynki/yii2-image-input/src',
+    ),
+  ),
+  'pigochu/yii2-jquery-locationpicker' => 
+  array (
+    'name' => 'pigochu/yii2-jquery-locationpicker',
+    'version' => '0.2.3.0',
+    'alias' => 
+    array (
+      '@pigolab/locationpicker' => $vendorDir . '/pigochu/yii2-jquery-locationpicker',
+    ),
+  ),
+  'borales/yii2-phone-input' => 
+  array (
+    'name' => 'borales/yii2-phone-input',
+    'version' => '0.1.1.0',
+    'alias' => 
+    array (
+      '@borales/extensions/phoneInput' => $vendorDir . '/borales/yii2-phone-input/src',
+    ),
+  ),
 );

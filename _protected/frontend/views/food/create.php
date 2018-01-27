@@ -4,7 +4,8 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\Food */
+/* @var $food frontend\models\Food */
+/* @var $fooddetails frontend\models\Food */
 
 $this->title = 'เพิ่มข้อมูลเมนูอาหาร';
 $this->params['breadcrumbs'][] = ['label' => 'ข้อมูลเมนูอาหาร', 'url' => ['index']];
@@ -15,7 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
-        'model' => $model,
+        'food' => $food,
+        'fooddetails' => $fooddetails,
     ]) ?>
 
 </div>

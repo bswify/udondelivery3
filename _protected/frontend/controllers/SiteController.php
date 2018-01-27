@@ -6,8 +6,10 @@ use common\models\LoginForm;
 use frontend\models\AccountActivation;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
+use frontend\models\Restaurant;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use yii\db\Query;
 use yii\helpers\Html;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -270,6 +272,7 @@ class SiteController extends Controller
      * @see config/params.php
      *
      * @return string|\yii\web\Response
+     * @throws \yii\db\Exception
      */
     public function actionSignup()
     {  
@@ -290,6 +293,11 @@ class SiteController extends Controller
                 {
                     if (Yii::$app->getUser()->login($user)) 
                     {
+                        // insert data to table
+                        Yii::$app->db->createCommand()->insert('restaurant', [
+                            'IDUser' => $user->id,
+                        ])->execute();
+
                         return $this->goHome();
                     }
                 }

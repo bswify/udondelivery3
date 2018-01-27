@@ -45,6 +45,8 @@ class RespromotionSearch extends Respromotion
 
         // add conditions that should always apply here
 
+        $restaurantId = $this->searchResId($params);
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
@@ -58,16 +60,23 @@ class RespromotionSearch extends Respromotion
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
-            'IDResPromotion' => $this->IDResPromotion,
-            
-            'ResPromotionStart' => $this->ResPromotionStart,
-            'ResPromotionEnd' => $this->ResPromotionEnd,
-            'IDRestaurant' => $this->IDRestaurant,
-        ]);
+//        $query->andFilterWhere([
+//            'IDResPromotion' => $this->IDResPromotion,
+//
+//            'ResPromotionStart' => $this->ResPromotionStart,
+//            'ResPromotionEnd' => $this->ResPromotionEnd,
+//            'IDRestaurant' => $this->IDRestaurant,
+//        ]);
+//
+//        $query->andFilterWhere(['like', 'ResPromotionName', $this->ResPromotionName]);
 
-        $query->andFilterWhere(['like', 'ResPromotionName', $this->ResPromotionName]);
-
+        $query->where(['IDRestaurant' => $this->IDRestaurant = $restaurantId]);
         return $dataProvider;
+    }
+
+    public function searchResId($userid){
+        return $qurey = Restaurant::find()
+            ->select("IDRestaurant")
+            ->where(['IDUser' => $userid]);
     }
 }

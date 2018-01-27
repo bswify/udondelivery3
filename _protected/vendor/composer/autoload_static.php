@@ -8,8 +8,11 @@ class ComposerStaticInitff4c33bc179ad97047ec53783706af59
 {
     public static $files = array (
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '180092cfc969a12e06f2132a203a3184' => __DIR__ . '/..' . '/codeception/verify/src/Codeception/function.php',
     );
@@ -34,6 +37,7 @@ class ComposerStaticInitff4c33bc179ad97047ec53783706af59
         ),
         'p' => 
         array (
+            'pigolab\\locationpicker\\' => 23,
             'phpDocumentor\\Reflection\\' => 25,
         ),
         'n' => 
@@ -45,6 +49,10 @@ class ComposerStaticInitff4c33bc179ad97047ec53783706af59
         array (
             'mihaildev\\ckeditor\\' => 19,
         ),
+        'l' => 
+        array (
+            'libphonenumber\\' => 15,
+        ),
         'k' => 
         array (
             'kartik\\mpdf\\' => 12,
@@ -55,12 +63,18 @@ class ComposerStaticInitff4c33bc179ad97047ec53783706af59
         ),
         'd' => 
         array (
+            'dosamigos\\google\\maps\\' => 22,
             'dosamigos\\datepicker\\' => 21,
             'dmstr\\' => 6,
         ),
         'c' => 
         array (
+            'consynki\\yii\\input\\' => 19,
             'cebe\\markdown\\' => 14,
+        ),
+        'b' => 
+        array (
+            'borales\\extensions\\phoneInput\\' => 30,
         ),
         'W' => 
         array (
@@ -69,10 +83,18 @@ class ComposerStaticInitff4c33bc179ad97047ec53783706af59
         'P' => 
         array (
             'Psr\\Log\\' => 8,
+            'Psr\\Http\\Message\\' => 17,
         ),
         'M' => 
         array (
             'Mpdf\\' => 5,
+        ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Psr7\\' => 16,
+            'GuzzleHttp\\Promise\\' => 19,
+            'GuzzleHttp\\' => 11,
+            'Giggsey\\Locale\\' => 15,
         ),
         'F' => 
         array (
@@ -138,6 +160,10 @@ class ComposerStaticInitff4c33bc179ad97047ec53783706af59
         array (
             0 => __DIR__ . '/..' . '/ramosisw/yii2-material-dashboard',
         ),
+        'pigolab\\locationpicker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pigochu/yii2-jquery-locationpicker',
+        ),
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
@@ -157,6 +183,10 @@ class ComposerStaticInitff4c33bc179ad97047ec53783706af59
         array (
             0 => __DIR__ . '/..' . '/mihaildev/yii2-ckeditor',
         ),
+        'libphonenumber\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src',
+        ),
         'kartik\\mpdf\\' => 
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-mpdf',
@@ -164,6 +194,10 @@ class ComposerStaticInitff4c33bc179ad97047ec53783706af59
         'janisto\\timepicker\\' => 
         array (
             0 => __DIR__ . '/..' . '/janisto/yii2-timepicker/src',
+        ),
+        'dosamigos\\google\\maps\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/2amigos/yii2-google-maps-library',
         ),
         'dosamigos\\datepicker\\' => 
         array (
@@ -173,9 +207,17 @@ class ComposerStaticInitff4c33bc179ad97047ec53783706af59
         array (
             0 => __DIR__ . '/..' . '/dmstr/yii2-adminlte-asset',
         ),
+        'consynki\\yii\\input\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/consynki/yii2-image-input/src',
+        ),
         'cebe\\markdown\\' => 
         array (
             0 => __DIR__ . '/..' . '/cebe/markdown',
+        ),
+        'borales\\extensions\\phoneInput\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/borales/yii2-phone-input/src',
         ),
         'Webmozart\\Assert\\' => 
         array (
@@ -185,9 +227,29 @@ class ComposerStaticInitff4c33bc179ad97047ec53783706af59
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
         'Mpdf\\' => 
         array (
             0 => __DIR__ . '/..' . '/mpdf/mpdf/src',
+        ),
+        'GuzzleHttp\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'GuzzleHttp\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
+        ),
+        'GuzzleHttp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'Giggsey\\Locale\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/giggsey/locale/src',
         ),
         'Faker\\' => 
         array (

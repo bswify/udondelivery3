@@ -25,7 +25,9 @@ return [
         ],
         'session' => [
     		'name' => 'BACKENDSESSION'//ชื่อ Session
-    	  ],
+          ],
+          
+          
         // here you can set theme used for your backend application 
         // - template comes with: 'default', 'slate', 'spacelab' and 'cerulean'
         'view' => [
@@ -35,7 +37,7 @@ return [
             ],
         ],
         'user' => [
-            'identityClass' => 'common\models\UserIdentity',
+            'identityClass' => 'common\models\AdminsIdentity',
             'enableAutoLogin' => true,
         ],
         'log' => [
